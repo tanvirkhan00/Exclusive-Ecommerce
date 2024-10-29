@@ -22,56 +22,58 @@ const BillingDetails = () => {
                 <div className="container my-[50px] mx-auto">
                     <h1 className='text-[35px] font-semibold'>Billing Details</h1>
                     <div className='flex justify-between gap-2 flex-wrap mt-[40px]'>
-                        <div className='flex flex-col gap-4 basis-[40%]'>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="name">First Name</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="text" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="company">Company name</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="text" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="street">Street Address</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="text" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="appartment">Apartment, floor, etc.(optional)</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="text" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="town">Town/City</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="text" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="number">Phone Number</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="number" />
-                            </div>
-                            <div className='flex flex-col gap-1'>
-                                <label className='text-slate-500' htmlFor="email">Email Address</label>
-                                <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300' type="email" />
-                            </div>
-                            <div>
+                        <div className='basis-[40%]'>
+                            <form className='flex flex-col gap-4'>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="name">First Name</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="text" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="company">Company name</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="text" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="street">Street Address</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="text" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="appartment">Apartment, floor, etc.(optional)</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="text" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="town">Town/City</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="text" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="number">Phone Number</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="number" />
+                                </div>
+                                <div className='flex flex-col gap-1'>
+                                    <label className='text-slate-500' htmlFor="email">Email Address</label>
+                                    <input className='bg-slate-100 outline-none rounded-md py-2 px-3 border-2 border-slate-300 duration-300 hover:border-black' type="email" />
+                                </div>
+                            </form>
+                            <div className='mt-5'>
                                 <p className='flex items-center gap-4'><span className='text-[30px] text-red-500'><CiSquareCheck /></span>Save this information for faster check-out next time</p>
                             </div>
                         </div>
-                        <div className='flex flex-col gap-6 basis-[40%]'>
+                        <div className='flex flex-col gap-6 basis-[40%] mt-5'>
                             <div className='flex flex-col gap-4'>
                                 {filterProducts.map((item) => (
                                     <div className='flex items-center gap-2 justify-between shadow-sm shadow-black px-2 py-1'>
                                         <div className='flex items-center gap-3'>
-                                            <img className='h-[50px]' src={item.thumbnail} alt="" />
+                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[50px]' /></Link>
                                             <h4>{item.title}</h4>
                                         </div>
                                         <h4>${item.price}</h4>
                                     </div>
                                 ))}
                             </div>
-                            <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2'>
+                            <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                 <h3 className='font-semibold'>Subtotal</h3>
                                 <h4>$4374</h4>
                             </div>
-                            <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2'>
+                            <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                 <h3 className='font-semibold'>Shipping</h3>
                                 <h4>Free</h4>
                             </div>
@@ -102,13 +104,13 @@ const BillingDetails = () => {
                                     <input className='outline-none' type="text" placeholder='Coupon Code' />
                                 </div>
                                 <div>
-                                    <button className='bg-red-600 text-white py-3 px-10 rounded-md'>
+                                    <button className='py-3 px-10 rounded-md border-2 border-black duration-300 hover:bg-red-500'>
                                         <a>Apply Coupon</a>
                                     </button>
                                 </div>
                             </div>
                             <div>
-                                <button className='bg-red-600 text-white py-3 px-8 rounded-md'>
+                                <button className='py-3 px-8 rounded-md border-2 border-black duration-300 hover:bg-red-500'>
                                     <a>Place Order</a>
                                 </button>
                             </div>

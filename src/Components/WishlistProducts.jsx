@@ -21,7 +21,7 @@ const WishlistProducts = () => {
                     <div>
                         <div className='flex items-center justify-between'>
                             <h3 className='font-semibold text-[20px]'>Wishlist (4)</h3>
-                            <button className='border-2 border-slate-500 px-[30px] py-3 rounded-md'>
+                            <button className='border-2 border-slate-500 px-[30px] py-3 rounded-md duration-300 hover:bg-red-500'>
                                 <a>Move All To Bag</a>
                             </button>
                         </div>
@@ -29,7 +29,7 @@ const WishlistProducts = () => {
                             {filterProducts.map((item) => (
                                 <div className='relative basis-[24%]'>
                                     <div className='bg-slate-200 relative group'>
-                                        <img src={item.thumbnail} alt="" />
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                         </div>

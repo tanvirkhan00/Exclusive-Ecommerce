@@ -30,7 +30,7 @@ const Cart = () => {
                             {filterProducts.map((item) => (
                                 <div className='flex items-center justify-between gap-2 group px-5 shadow-slate-600 shadow-sm py-1'>
                                     <div className='flex items-center gap-4 relative basis-[23%]'>
-                                        <img className='h-[70px]' src={item.thumbnail} alt="" />
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[70px]'/></Link>
                                         <h2>{item.title}</h2>
                                         <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 '><IoIosCloseCircle /></span>
                                     </div>
@@ -44,7 +44,7 @@ const Cart = () => {
                         </div>
                         <div className='flex items-center justify-between gap-2'>
                             <button className='border-2 border-black rounded-md px-6 py-2'>
-                                <Link to="/"><a>Return To Shop</a></Link>
+                                <Link to="/shop"><a>Return To Shop</a></Link>
                             </button>
                             <button className='border-2 border-black rounded-md px-6 py-2'>
                                 <a>Update Cart</a>
@@ -53,25 +53,25 @@ const Cart = () => {
                         <div className='flex justify-between gap-2 items-start mt-8'>
                             <div className='flex items-center gap-3'>
                                 <input className='outline-0 border-slate-600 border-2 rounded-md py-3 px-2' type="text" placeholder='Coupon Code' />
-                                <button className='bg-red-600 px-7 py-3 rounded-md text-white'>
+                                <button className='px-7 py-3 rounded-md border-2 border-black duration-300 hover:bg-red-500'>
                                     <a>Apply Coupon</a>
                                 </button>
                             </div>
                             <div className='border-2 border-black p-5 w-[350px] flex flex-col gap-4'>
                                 <h2 className='text-[20px] font-semibold'>Cart Total</h2>
-                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2'>
+                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Subtotal</h4>
                                     <h5>$2372</h5>
                                 </div>
-                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2'>
+                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Shipping</h4>
                                     <h5>$2372</h5>
                                 </div>
-                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2'>
+                                <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Total</h4>
                                     <h5>$2372</h5>
                                 </div>
-                                <button className='bg-red-600 px-7 py-3 rounded-md text-white mt-5 max-w-fit mx-auto'>
+                                <button className='px-7 py-3 rounded-md mt-5 max-w-fit mx-auto border-2 border-black duration-300 hover:bg-red-500'>
                                     <Link to="/checkOut"><a>Process to Checkout</a></Link>
                                 </button>
                             </div>

@@ -35,11 +35,11 @@ const Footer = () => {
                         </div>
                         <div className='flex flex-col gap-2'>
                             <h1 className='text-[25px]'>Account</h1>
-                            <h3>My Account</h3>
+                            <Link to="account"><h3>My Account</h3></Link>
                             <Link to="signUp"><h3>Login/ Register</h3></Link>
                             <Link to="/cart"><h3>Cart</h3></Link>
                             <Link to="/wishList"><h3>Wishlist</h3></Link>
-                            <h1>Shap</h1>
+                            <Link to="/shop"><h1>Shop</h1></Link>
                         </div>
                         <div className='flex flex-col gap-2'>
                             <h1 className='text-[25px]'>Quick Link</h1>

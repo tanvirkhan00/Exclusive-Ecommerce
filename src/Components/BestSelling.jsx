@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { apiData } from './ContextApi';
+import { Link } from 'react-router-dom';
+
 
 // React Icon
 import { CiStar } from "react-icons/ci";
@@ -23,9 +25,9 @@ const BestSelling = () => {
                         </div>
                         <div className='flex justify-between items-center mt-[20px]'>
                             <h1 className='text-[35px] font-semibold'>Best Selling Products</h1>
-                            <button className='w-[100px] text-center bg-red-600 text-white py-2 rounded-md'>
+                            <Link to="/shop"><button className='w-[100px] text-center py-2 rounded-md border-2 border-black duration-300 hover:bg-red-600'>
                                 View all
-                            </button>
+                            </button></Link>
                         </div>
                         <div className='flex justify-between gap-3 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (

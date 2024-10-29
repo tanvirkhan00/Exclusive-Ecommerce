@@ -23,7 +23,7 @@ const ForYouProducts = () => {
                                 <span className='w-[10px] h-[20px] bg-red-600'></span>
                                 <h1 className='font-semibold text-black text-[20px]'>Just For You</h1>
                             </div>
-                            <button className='border-2 border-slate-600 rounded-md px-[30px] py-2'>
+                            <button className='border-2 border-slate-600 rounded-md px-[30px] py-2 duration-300 hover:bg-red-500'>
                                 <a>See All</a>
                             </button>
                         </div>
@@ -31,9 +31,9 @@ const ForYouProducts = () => {
                             {filterProducts.map((item) => (
                                 <div className='relative basis-[24%]'>
                                     <div className='bg-slate-200 relative group'>
-                                        <img src={item.thumbnail} alt="" />
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                            <h3 className='flex items-center justify-center gap-2'><BsCartPlusFill/>Add To Cart</h3>
+                                            <h3 className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
                                     <div className='mt-[20px]'>

@@ -8,6 +8,7 @@ import { CiStar } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const ExploreProducts = () => {
 
@@ -61,7 +62,7 @@ const ExploreProducts = () => {
                             {filterProducts.map((item) => (
                                 <div className='relative basis-[24%]'>
                                     <div className='bg-slate-200 relative group'>
-                                        <img src={item.thumbnail} alt="" />
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
@@ -86,8 +87,8 @@ const ExploreProducts = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div className='text-center w-[200px] py-3 bg-red-500 mx-auto mt-[20px] rounded-md '>
-                                <button className='text-[20px] font-semibold'>View All Products</button>
+                            <div className='text-center w-[200px] py-3 mx-auto mt-[20px] rounded-md border-2 border-black duration-300 hover:bg-red-600'>
+                                <Link to="/shop"><button className='text-[20px] font-semibold'>View All Products</button></Link>
                             </div>
                         </div>
                     </div>

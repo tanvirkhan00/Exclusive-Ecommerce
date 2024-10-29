@@ -12,6 +12,8 @@ import { FaShopify } from "react-icons/fa6";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa6";
 import { CiLogout } from "react-icons/ci";
+import { useSelector } from 'react-redux';
+import { addToCart } from './slice/CartSlice';
 
 
 
@@ -53,6 +55,9 @@ const Header = () => {
         }
     })
 
+    let ddd = useSelector((state)=>state)
+    console.log(ddd)
+
     return (
         <>
 
@@ -66,10 +71,10 @@ const Header = () => {
                         <Link to="/"><h1 className='text-[50px] font-bold text-yellow-500'>Exclusive</h1></Link>
                         <div>
                             <ul className='flex items-center gap-6'>
-                                <Link to="/"><li>Home</li></Link>
-                                <Link to="/contact"><li>Contact</li></Link>
-                                <Link to="/about"><li>About</li></Link>
-                                <Link to="/signUp"><li>Sign Up</li></Link>
+                                <Link to="/"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Home</li></Link>
+                                <Link to="/contact"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Contact</li></Link>
+                                <Link to="/about"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">About</li></Link>
+                                <Link to="/signUp"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Sign Up</li></Link>
                             </ul>
                         </div>
                         <div className='flex items-center gap-5'>

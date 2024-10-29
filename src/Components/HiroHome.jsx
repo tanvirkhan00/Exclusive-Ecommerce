@@ -50,7 +50,7 @@ const HiroHome = () => {
                                 <div className='border-r-2 border-slate-400 mt-4'>
                                     <ul className='flex flex-col gap-2'>
                                         <li onClick={() => handleCategory(item)}>
-                                            <a className='text-[20px] capitalize cursor-pointer'>{item}</a>
+                                            <a className='text-[20px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
                                         </li>
                                     </ul>
                                 </div>
