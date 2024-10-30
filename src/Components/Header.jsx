@@ -40,12 +40,12 @@ const Header = () => {
         }
     }
 
-    // let handleToDetails = (id) => {
-    //     navigate(`/shop/${id}`)
-    //     setInputValue("")
-    //     setSearchItem([])
+    let handleToDetails = (id) => {
+        navigate(`/shop/${id}`)
+        setInputValue("")
+        setSearchItem([])
 
-    // }
+    }
 
     document.addEventListener("click", (e) => {
         if (accountRef.current.contains(e.target)) {
@@ -55,7 +55,7 @@ const Header = () => {
         }
     })
 
-    let ddd = useSelector((state)=>state)
+    let ddd = useSelector((state) => state)
     console.log(ddd)
 
     return (
@@ -78,7 +78,7 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className='flex items-center gap-5'>
-                            <div className='flex items-center gap-3 bg-slate-200 px-2'>
+                            <div className='flex items-center gap-3 bg-slate-200 px-2 duration-300 border-2 border-transparent hover:border-black'>
                                 <input onChange={handleSearch} value={inputValue} className='bg-transparent px-2 py-2  outline-none' type="text" placeholder='What are you looking for?' />
                                 <CiSearch />
                                 {searchItem.length > 0 &&
@@ -95,9 +95,9 @@ const Header = () => {
                                     </div>
                                 }
                             </div>
-                            <Link to="/wishList"><a className='cursor-pointer'><CiHeart /></a></Link>
-                            <Link to="/cart"> <a className='cursor-pointer'><IoCartOutline /></a> </Link>
-                            <a ref={accountRef} className='cursor-pointer'><VscAccount /></a>
+                            <Link to="/wishList"><a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><CiHeart /></a></Link>
+                            <Link to="/cart"> <a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><IoCartOutline /></a> </Link>
+                            <a ref={accountRef} className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><VscAccount /></a>
                         </div>
                         {accountShow &&
                             <div className='absolute right-0 top-[65px] bg-black text-white z-50 bg-opacity-90 p-[30px] rounded-md border-2 border-yellow-500'>

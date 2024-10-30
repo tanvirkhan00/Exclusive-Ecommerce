@@ -1,68 +1,98 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 // Icons
 import { IoRefreshCircleOutline } from "react-icons/io5";
 import { TbCar } from "react-icons/tb";
+import { FaStar } from "react-icons/fa";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { apiData } from './ContextApi';
+import RelatedProducts from './RelatedProducts';
+
+
 
 
 
 const SingleProduct = () => {
+
+    let [info, setInfo] = useState([])
+
+    let productId = useParams()
+
+    useEffect(() => {
+        fetch(`https://dummyjson.com/products/${productId.id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setInfo(data)
+            })
+            .then((error) => console.error("This is the error", error))
+    }, [])
+
+    let products = useContext(apiData)
+    let filterProducts = products.filter((item) => item.category == info.category)
+
+
     return (
         <>
-           <section>
-            <div className="container">
-                <div>
-                    <div>
-                        <img src="" alt="" />
-                    </div>
-                    <div>
-                        <h1></h1>
-                        <div>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+            <section>
+                <div className="container mx-auto mt-[50px]">
+                    <div className='flex justify-between flex-wrap gap-2'>
+                        <div className='basis-[60%] flex items-center justify-center'>
+                            <img src={info.thumbnail} alt="" className='w-[60%]' />
                         </div>
-                        <h2></h2>
-                        <p></p>
-                        <p>Colors: </p>
-                        <div>
-                            <p>Size: </p>
-                            <div>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
+                        <div className='flex flex-col gap-2 basis-[35%]'>
+                            <h1 className='text-[25px] font-semibold'>{info.title}</h1>
+                            <div className='flex items-center gap-2'>
+                                <span className='text-yellow-500'><FaStar /></span>
+                                <span className='text-yellow-500'><FaStar /></span>
+                                <span className='text-yellow-500'><FaStar /></span>
+                                <span className='text-yellow-500'><FaStar /></span>
+                                <span className='text-yellow-500'><FaStar /></span>
+                                <p className=''>(130 Reviews)</p>
+                                <p className='border-l-2 pl-4 border-slate-400 text-green-600'>In Stock</p>
                             </div>
-                        </div>
-                        <div>
-                            <input type="number" />
-                            <button>Buy Now</button>
-                            <span></span>
-                        </div>
-                        <div>
-                            <div>
-                                <span><TbCar/></span>
-                                <div>
-                                    <h3>Free Delivery</h3>
-                                    <a>Enter your postal code for delivery available</a>
+                            <h2 className='text-red-500 text-[20px]'>${info.price}</h2>
+                            <p className='pb-3'>{info.description}</p>
+                            <p className='flex items-center gap-2 text-[20px] font-semibold border-t-2 border-slate-400 pt-4'>Colors: <span className='h-[17px] w-[17px] rounded-full bg-green-500'></span> <span className='h-[17px] w-[17px] rounded-full bg-red-500'></span></p>
+                            <p className='text-[20px] font-semibold'>Category: <span className='font-normal text-red-700 capitalize'>{info.category}</span></p>
+                            <div className='flex items-center gap-4 mt-2'>
+                                <p className='text-[20px] font-semibold'>Size: </p>
+                                <div className='flex items-center gap-2'>
+                                    <p className='border-2 border-slate-600 rounded-md w-[30px] text-center font-semibold'>XS</p>
+                                    <p className='border-2 border-slate-600 rounded-md w-[30px] text-center font-semibold'>S</p>
+                                    <p className='border-2 border-slate-600 rounded-md w-[30px] text-center bg-red-500 text-white font-semibold'>M</p>
+                                    <p className='border-2 border-slate-600 rounded-md w-[30px] text-center font-semibold'>L</p>
+                                    <p className='border-2 border-slate-600 rounded-md w-[30px] text-center font-semibold'>XL</p>
                                 </div>
                             </div>
-                            <div>
-                                <span><IoRefreshCircleOutline/></span>
-                                <div>
-                                    <h1>Return Delivery</h1>
-                                    <a>Free 30 days delivery returns. <span>Details</span></a>
+                            <div className='flex items-center gap-3 mt-2'>
+                                <input className='border-2 border-slate-600 outline-none py-1 rounded-md px-2 ' type="number" placeholder='1' />
+                                <button className='bg-red-500 px-10 py-2 text-white font-semibold rounded-md'>Buy Now</button>
+                                <span className='border-2 border-slate-500 rounded-md px-2 py-2 text-[20px]'><IoMdHeartEmpty /></span>
+                            </div>
+                            <div className='mt-5'>
+                                <div className='flex items-center gap-4 border-2 border-slate-500 py-2 px-4'>
+                                    <span className='text-[30px]'><TbCar /></span>
+                                    <div>
+                                        <h3 className='font-semibold text-[18px]'>Free Delivery</h3>
+                                        <a className='border-b-2 border-slate-400'>Enter your postal code for delivery available</a>
+                                    </div>
+                                </div>
+                                <div className='flex items-center gap-4 border-2 border-slate-500 py-2 px-4'>
+                                    <span className='text-[30px]'><IoRefreshCircleOutline /></span>
+                                    <div>
+                                        <h1 className='font-semibold text-[18px]'>Return Delivery</h1>
+                                        <a>Free 30 days delivery returns. <span className='border-b-2 border-slate-400'>Details</span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-           </section>
-            
+            </section>
+
+            <RelatedProducts filterProducts={filterProducts} />
+
         </>
     );
 };

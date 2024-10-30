@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { apiData } from './ContextApi';
+import { Link } from 'react-router-dom';
 
 // Icon
 import { CiStar } from "react-icons/ci";
@@ -23,9 +24,9 @@ const ForYouProducts = () => {
                                 <span className='w-[10px] h-[20px] bg-red-600'></span>
                                 <h1 className='font-semibold text-black text-[20px]'>Just For You</h1>
                             </div>
-                            <button className='border-2 border-slate-600 rounded-md px-[30px] py-2 duration-300 hover:bg-red-500'>
+                            <Link to="/shop"><button className='border-2 border-slate-600 rounded-md px-[30px] py-2 duration-300 hover:bg-red-500'>
                                 <a>See All</a>
-                            </button>
+                            </button></Link>
                         </div>
                         <div className='flex justify-between gap-3 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (
