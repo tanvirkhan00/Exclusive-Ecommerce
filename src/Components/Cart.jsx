@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Icon
 import { IoIosCloseCircle } from "react-icons/io";
 import { apiData } from './ContextApi';
+import { useSelector } from 'react-redux';
 
 
 const Cart = () => {
@@ -12,6 +13,11 @@ const Cart = () => {
     let products = useContext(apiData)
 
     let filterProducts = products.filter((item) => item.id >= 23 == item.id <= 28)
+
+    let cartData = useSelector((state)=>state.cartItemsProvider.cartItems)
+     
+    
+
     return (
         <>
 

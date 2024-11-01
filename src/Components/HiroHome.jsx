@@ -14,20 +14,6 @@ import HiroImg from "/src/assets/mobile.png";
 
 const HiroHome = () => {
 
-    let info = useContext(apiData)
-    let [category, setCategory] = useState([])
-    
-    useEffect(()=>{
-        setCategory([...new Set(info.map((item)=>item.category))])
-    },[info])
-
-    let [categoryItem, setCategoryItem] = useState([])
-    
-    let handleCategory = (cat) => {
-        let filteredCat = info.filter((item)=> item.category == cat)
-        setCategoryItem(filteredCat)
-    }
-
 
     const settings = {
         dots: true,
@@ -43,93 +29,77 @@ const HiroHome = () => {
         <>
             <section>
                 <div className="container my-[50px] mx-auto">
-                    <div className='flex justify-between'>
-                        <div className='w-[250px]'>
-                            <h1 className='text-[25px] font-bold text-red-600'>Categori Product</h1>
-                            {category.map((item) => (
-                                <div className='border-r-2 border-slate-400 mt-4'>
-                                    <ul className='flex flex-col gap-2'>
-                                        <li onClick={() => handleCategory(item)}>
-                                            <a className='text-[20px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="slider-container w-[70%]">
-                            <Slider {...settings}>
-                                <div>
-                                    <div className='bg-black text-white flex items-center'>
-                                        <div className=' pl-[40px]'>
-                                            <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                            <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
-                                            <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
-                                        </div>
+                    <div className="slider-container w-[70%] mx-auto">
+                        <Slider {...settings}>
+                            <div>
+                                <div className='bg-black text-white flex items-center'>
+                                    <div className=' pl-[40px]'>
+                                        <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
+                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
+                                    </div>
 
-                                        <div className=''>
-                                            <img src={HiroImg} alt="" className='h-[350px]' />
-                                        </div>
+                                    <div className=''>
+                                        <img src={HiroImg} alt="" className='h-[350px]' />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className='bg-black text-white flex items-center'>
-                                        <div className=' pl-[40px]'>
-                                            <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                            <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
-                                            <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
-                                        </div>
+                            </div>
+                            <div>
+                                <div className='bg-black text-white flex items-center'>
+                                    <div className=' pl-[40px]'>
+                                        <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
+                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
+                                    </div>
 
-                                        <div className=''>
-                                            <img src={HiroImg} alt="" className='h-[350px]' />
-                                        </div>
+                                    <div className=''>
+                                        <img src={HiroImg} alt="" className='h-[350px]' />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className='bg-black text-white flex items-center'>
-                                        <div className=' pl-[40px]'>
-                                            <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                            <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
-                                            <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
-                                        </div>
+                            </div>
+                            <div>
+                                <div className='bg-black text-white flex items-center'>
+                                    <div className=' pl-[40px]'>
+                                        <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
+                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
+                                    </div>
 
-                                        <div className=''>
-                                            <img src={HiroImg} alt="" className='h-[350px]' />
-                                        </div>
+                                    <div className=''>
+                                        <img src={HiroImg} alt="" className='h-[350px]' />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className='bg-black text-white flex items-center'>
-                                        <div className=' pl-[40px]'>
-                                            <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                            <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
-                                            <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
-                                        </div>
+                            </div>
+                            <div>
+                                <div className='bg-black text-white flex items-center'>
+                                    <div className=' pl-[40px]'>
+                                        <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
+                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
+                                    </div>
 
-                                        <div className=''>
-                                            <img src={HiroImg} alt="" className='h-[350px]' />
-                                        </div>
+                                    <div className=''>
+                                        <img src={HiroImg} alt="" className='h-[350px]' />
                                     </div>
                                 </div>
-                                <div>
-                                    <div className='bg-black text-white flex items-center'>
-                                        <div className=' pl-[40px]'>
-                                            <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                            <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
-                                            <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
-                                        </div>
+                            </div>
+                            <div>
+                                <div className='bg-black text-white flex items-center'>
+                                    <div className=' pl-[40px]'>
+                                        <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
+                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
+                                    </div>
 
-                                        <div className=''>
-                                            <img src={HiroImg} alt="" className='h-[350px]' />
-                                        </div>
+                                    <div className=''>
+                                        <img src={HiroImg} alt="" className='h-[350px]' />
                                     </div>
                                 </div>
-                            </Slider>
-                        </div>
+                            </div>
+                        </Slider>
                     </div>
                 </div>
             </section>
-
-            <FlashSales categoryItem={categoryItem} />
         </>
     );
 };

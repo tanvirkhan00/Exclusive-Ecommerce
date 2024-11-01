@@ -5,11 +5,13 @@ import CategoriMusic from '../Components/CategoriMusic';
 import ExploreProducts from '../Components/ExploreProducts';
 import NewArrival from '../Components/NewArrival';
 import WorkAbout from '../Components/WorkAbout';
+import FlashSales from '../Components/FlashSales';
 
 const Home = () => {
     return (
         <>
             <HiroHome />
+            <FlashSales />
             <BestSelling />
             <CategoriMusic />
             <ExploreProducts />

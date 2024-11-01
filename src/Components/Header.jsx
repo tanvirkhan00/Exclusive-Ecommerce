@@ -12,13 +12,6 @@ import { FaShopify } from "react-icons/fa6";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa6";
 import { CiLogout } from "react-icons/ci";
-import { useSelector } from 'react-redux';
-import { addToCart } from './slice/CartSlice';
-
-
-
-
-
 
 
 const Header = () => {
@@ -47,23 +40,21 @@ const Header = () => {
 
     }
 
-    document.addEventListener("click", (e) => {
-        if (accountRef.current.contains(e.target)) {
-            setAccountShow(!accountShow)
-        } else {
-            setAccountShow(false)
-        }
-    })
+    // document.addEventListener("click", (e) => {
+    //     if (accountRef.current.contains(e.target)) {
+    //         setAccountShow(!accountShow)
+    //     } else {
+    //         setAccountShow(false)
+    //     }
+    // })
 
-    let ddd = useSelector((state) => state)
-    console.log(ddd)
 
     return (
         <>
 
             <header className='border-b-2 border-slate-300'>
                 <div className='bg-black py-2 text-[14px] text-white flex items-center justify-center gap-[300px]'>
-                    <p className='text-center'>Summer Sale For All Swim Suits And Free Express Delivery-Off 50%!  <a className='font-bold'> ShopNow</a></p>
+                    <p className='text-center'>Summer Sale For All Swim Suits And Free Express Delivery-Off 50%!  <Link to="/shop"><span className='font-bold hover:text-red-500'> ShopNow</span></Link></p>
                     <h3 className='flex items-center gap-2'>English <FaChevronDown /></h3>
                 </div>
                 <div className="container mx-auto ">

@@ -40,7 +40,7 @@ const Shop = () => {
                                     <div className='mt-4'>
                                         <ul className='flex flex-col gap-2'>
                                             <li onClick={() => handleCategory(item)}>
-                                                <a className='text-[20px] capitalize cursor-pointer duration-300 ease-in-out border-b-2 '>{item}</a>
+                                                <a className='text-[20px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -49,11 +49,11 @@ const Shop = () => {
                             <div>
                                 <h1 className='text-[30px] font-semibold'>Pricing</h1>
                                 <div className='flex flex-col gap-2 mt-2'>
-                                    <a className='cursor-pointer'>1-100</a>
-                                    <a className='cursor-pointer'>101-500</a>
-                                    <a className='cursor-pointer'>501-1000</a>
-                                    <a className='cursor-pointer'>1001-5000</a>
-                                    <a className='cursor-pointer'>5001-1000000</a>
+                                    <a className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>1-100</a>
+                                    <a className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>101-500</a>
+                                    <a className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>501-1000</a>
+                                    <a className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>1001-5000</a>
+                                    <a className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>5001-1000000</a>
                                 </div>
                             </div>
                         </div>
