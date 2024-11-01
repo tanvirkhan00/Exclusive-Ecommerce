@@ -8,6 +8,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
 
 const RelatedProducts = ({filterProducts}) => {
+    
     return (
         <>
 
@@ -53,7 +54,10 @@ const RelatedProducts = ({filterProducts}) => {
             </section>
 
         </>
+        
     );
+    window.reload(RelatedProducts)
+   
 };
 
 export default RelatedProducts;

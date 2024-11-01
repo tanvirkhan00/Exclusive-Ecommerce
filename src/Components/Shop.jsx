@@ -32,7 +32,7 @@ const Shop = () => {
 
             <section>
                 <div className="container my-[50px] mx-auto">
-                    <div className='flex justify-between gap-2'>
+                    <div className='flex justify-between gap-2 items-start'>
                         <div className='flex flex-col gap-10 basis-[25%] border-r-2 border-slate-500'>
                             <div>
                                 <h1 className='text-[30px] font-semibold'>Category Products</h1>
@@ -60,16 +60,16 @@ const Shop = () => {
                         {categoryItem.length > 0 ?
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {categoryItem.map((item) => (
-                                    <div className='relative basis-[32%]'>
-                                        <div className='bg-slate-200 relative group'>
-                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" /></Link>
+                                    <div className='relative basis-[32%] pb-2'>
+                                        <div className='bg-slate-200 relative group  flex items-center justify-center'>
+                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
                                             <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
                                                 <h3 onClick={() => handleToCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                             </div>
                                         </div>
-                                        <div className='mt-[20px]'>
+                                        <div className='mt-[10px]'>
                                             <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                            <h3 className='text-red-500 font-semibold my-2'>${item.price}</h3>
+                                            <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
                                             <div className='flex'>
                                                 <span className=' text-yellow-600'><CiStar /></span>
                                                 <span className=' text-yellow-600'><CiStar /></span>
@@ -91,16 +91,16 @@ const Shop = () => {
                             :
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {products.map((item) => (
-                                    <div className='relative basis-[32%]'>
-                                        <div className='bg-slate-200 relative group'>
-                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" /></Link>
+                                    <div className='relative basis-[32%] pb-2'>
+                                        <div className='bg-slate-200 relative group flex items-center justify-center'>
+                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
                                             <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
                                                 <h3 onClick={() => handleToCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                             </div>
                                         </div>
-                                        <div className='mt-[20px]'>
+                                        <div className='mt-[10px]'>
                                             <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                            <h3 className='text-red-500 font-semibold my-2'>${item.price}</h3>
+                                            <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
                                             <div className='flex'>
                                                 <span className=' text-yellow-600'><CiStar /></span>
                                                 <span className=' text-yellow-600'><CiStar /></span>

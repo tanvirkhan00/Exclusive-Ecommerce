@@ -15,18 +15,22 @@ import RelatedProducts from './RelatedProducts';
 
 const SingleProduct = () => {
 
-    let [info, setInfo] = useState([])
+    const [info, setInfo] = useState(null);
 
-    let productId = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://dummyjson.com/products/${productId.id}`)
+        fetch(`https://dummyjson.com/products/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setInfo(data)
             })
-            .then((error) => console.error("This is the error", error))
-    }, [])
+            .catch((error) => console.error("This is the error", error));
+    }, [id])
+
+    if (!info) {
+        return <p className='text-center py-[30px]'>Loading product details...</p>;
+    }
 
     let products = useContext(apiData)
     let filterProducts = products.filter((item) => item.category == info.category)
