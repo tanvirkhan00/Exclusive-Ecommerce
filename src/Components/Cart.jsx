@@ -1,22 +1,39 @@
 import React from 'react';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // Icon
 import { IoIosCloseCircle } from "react-icons/io";
-import { apiData } from './ContextApi';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrement, deletProduct, increment } from './Slice/CartSlice';
 
 
 const Cart = () => {
 
-    let products = useContext(apiData)
+    let cartItems = useSelector((state) => state.product.CartItem)
 
-    let filterProducts = products.filter((item) => item.id >= 23 == item.id <= 28)
+    let dispatch =useDispatch()
 
-    let cartData = useSelector((state)=>state.cartItemsProvider.cartItems)
-     
+    let handleIncrement = (itemId) => {
+        dispatch(increment(itemId))
+    }
+
+    let handleDecrement = (itemId) => {
+        dispatch(decrement(itemId))
+    }
+
+    // Plus total price
+
+    let total= cartItems.reduce((acc, curr) => {
+        return acc + (curr.price * curr.qty)
+    },0)
+
+    let deleteItem = (itemId) => {
+        dispatch(deletProduct(itemId))
+    }
     
+
+
+
 
     return (
         <>
@@ -32,18 +49,25 @@ const Cart = () => {
                                 <li className='basis-[23%] text-end'>Subtotal</li>
                             </ul>
                         </div>
-                        <div className='flex flex-col gap-6'>
-                            {filterProducts.map((item) => (
+                        <div className='flex flex-col  gap-6'>
+                            {cartItems.map((item,index) => (
                                 <div className='flex items-center justify-between gap-2 group px-5 shadow-slate-600 shadow-sm py-1'>
                                     <div className='flex items-center gap-4 relative basis-[23%]'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[70px]'/></Link>
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[70px]' /></Link>
                                         <h2>{item.title}</h2>
-                                        <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 '><IoIosCloseCircle /></span>
+                                        <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 ' onClick={() =>deleteItem(index)}><IoIosCloseCircle /></span>
                                     </div>
                                     <div className='basis-[23%] text-center'><h4>{item.price}</h4></div>
-                                    <div className='basis-[23%] text-center'><input className='border-2  w-[50px]' type="number" placeholder='1' /></div>
+                                    <div className='basis-[23%] text-center flex justify-center'>
+
+                                        <div className='w-[100px] border-2 border-black flex items-center justify-center gap-4 text-[20px]'>
+                                            <span className='cursor-pointer text-[25px] hover:text-red-600'  onClick={()=>handleIncrement(index)}>+</span>
+                                            <span>{item.qty}</span>
+                                            <span className='cursor-pointer hover:text-red-600'onClick={()=>handleDecrement(index)}>-</span>
+                                        </div>
+                                    </div>
                                     <div className='basis-[23%] text-end'>
-                                        <h3>{item.price}</h3>
+                                        <h3>Rs. {((item.qty) * (item.price)).toFixed(2)}</h3>
                                     </div>
                                 </div>
                             ))}
@@ -67,15 +91,15 @@ const Cart = () => {
                                 <h2 className='text-[20px] font-semibold'>Cart Total</h2>
                                 <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Subtotal</h4>
-                                    <h5>$2372</h5>
+                                    <h5>Rs. {total.toFixed(2)}</h5>
                                 </div>
                                 <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Shipping</h4>
-                                    <h5>$2372</h5>
+                                    <h5>Rs. {total.toFixed(2)}</h5>
                                 </div>
                                 <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                     <h4>Total</h4>
-                                    <h5>$2372</h5>
+                                    <h5>Rs. {total.toFixed(2)}</h5>
                                 </div>
                                 <button className='px-7 py-3 rounded-md mt-5 max-w-fit mx-auto border-2 border-black duration-300 hover:bg-red-500'>
                                     <Link to="/checkOut"><a>Process to Checkout</a></Link>
@@ -85,7 +109,6 @@ const Cart = () => {
                     </div>
                 </div>
             </section>
-
         </>
     );
 };

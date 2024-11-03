@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { apiData } from './ContextApi';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 // Icon
 import { CiSquareCheck } from "react-icons/ci";
@@ -9,13 +10,16 @@ import Bkash from "/src/assets/Bkash.png";
 import Visa from "/src/assets/Visa.png";
 import Nagad from "/src/assets/Nagad.png";
 import MasterCart from "/src/assets/Mastercard.png";
+import { useSelector } from 'react-redux';
 
 const BillingDetails = () => {
 
-    let products = useContext(apiData)
+    let cartProduct = useSelector((state) =>state.product.CartItem)
 
-    let filterProducts = products.filter((item) => item.id >= 26 == item.id <= 29)
-
+    let total = cartProduct.reduce((acc, curr) => {
+        return acc + (curr.price * curr.qty)
+    },0)
+    
     return (
         <>
             <section>
@@ -59,19 +63,20 @@ const BillingDetails = () => {
                         </div>
                         <div className='flex flex-col gap-6 basis-[40%] mt-5'>
                             <div className='flex flex-col gap-4'>
-                                {filterProducts.map((item) => (
+                                {cartProduct.map((item) => (
                                     <div className='flex items-center gap-2 justify-between shadow-sm shadow-black px-2 py-1'>
-                                        <div className='flex items-center gap-3'>
+                                        <div className='flex items-center gap-3 basis-[60%]'>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[50px]' /></Link>
                                             <h4>{item.title}</h4>
                                         </div>
-                                        <h4>${item.price}</h4>
+                                        <span className='basis-[10%]'>{item.qty}*</span>
+                                        <h4 className='basis-[20%]'>${item.price}</h4>
                                     </div>
                                 ))}
                             </div>
                             <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                 <h3 className='font-semibold'>Subtotal</h3>
-                                <h4>$4374</h4>
+                                <h4>${total.toFixed(2)}</h4>
                             </div>
                             <div className='flex items-center justify-between border-b-2 border-slate-300 pb-2 duration-300 hover:border-black'>
                                 <h3 className='font-semibold'>Shipping</h3>
@@ -79,7 +84,7 @@ const BillingDetails = () => {
                             </div>
                             <div className='flex items-center justify-between'>
                                 <h3 className='font-semibold'>Total</h3>
-                                <h4>$4374</h4>
+                                <h4>${total.toFixed(2)}</h4>
                             </div>
                             <form className='flex flex-col gap-4' action="">
                                 <div className='flex items-center gap-2 justify-between'>

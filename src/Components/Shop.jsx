@@ -7,23 +7,39 @@ import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart, WishListProduct } from './Slice/CartSlice';
 
 const Shop = () => {
 
     let products = useContext(apiData)
-
     let [category, setCategory] = useState([])
+    let [categoryItem, setCategoryItem] = useState([])
+    let dispatch = useDispatch()
 
+
+    // Category Item
     useEffect(() => {
         setCategory([...new Set(products.map((item) => item.category))])
     }, [products])
-
-    let [categoryItem, setCategoryItem] = useState([])
 
     let handleCategory = (cat) => {
         let filteredCat = products.filter((item) => item.category == cat)
         setCategoryItem(filteredCat)
     }
+
+    let handleCart = (item) => {
+        dispatch(addToCart({ ...item, qty: 1 }))
+
+    }
+
+    // WishList Product 
+
+    let handleWishList = (itemId) => {
+        dispatch(WishListProduct({ ...itemId, qty: 1 }))
+
+    }
+
 
 
 
@@ -60,11 +76,11 @@ const Shop = () => {
                         {categoryItem.length > 0 ?
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {categoryItem.map((item) => (
-                                    <div className='relative basis-[32%] pb-2'>
-                                        <div className='bg-slate-200 relative group  flex items-center justify-center'>
+                                    <div className='relative basis-[32%] pb-2 overflow-hidden group'>
+                                        <div className='bg-slate-200 relative group flex items-center justify-center'>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
-                                            <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                                <h3 onClick={() => handleToCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                            <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
+                                                <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                             </div>
                                         </div>
                                         <div className='mt-[10px]'>
@@ -81,9 +97,9 @@ const Shop = () => {
                                         <div className='absolute top-0 p-[20px]'>
                                             <h3 className='bg-red-500 w-[50px] text-center text-[14px] font-semibold rounded-[5px]'>{item.discountPercentage}%</h3>
                                         </div>
-                                        <div className='absolute right-0 top-0 p-[20px] flex flex-col gap-2'>
-                                            <span className='bg-white p-1 text-[20px] rounded-full'><CiHeart /></span>
-                                            <span className='bg-white p-1 text-[20px] rounded-full'><IoEyeOutline /></span>
+                                        <div className='absolute right-0  p-[20px] flex flex-col gap-2 -top-[100px] duration-700 ease-in-out group-hover:top-0'>
+                                            <span className='bg-white p-1 text-[20px] rounded-full duration-300 ease-in-out hover:scale-125 hover:text-red-600' onClick={() => handleWishList(item)}><CiHeart /></span>
+                                            <span className='bg-white p-1 text-[20px] rounded-full duration-300 ease-in-out hover:scale-125 hover:text-red-600'><IoEyeOutline /></span>
                                         </div>
                                     </div>
                                 ))}
@@ -91,11 +107,11 @@ const Shop = () => {
                             :
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {products.map((item) => (
-                                    <div className='relative basis-[32%] pb-2'>
+                                    <div className='relative basis-[32%] pb-2 overflow-hidden group'>
                                         <div className='bg-slate-200 relative group flex items-center justify-center'>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
-                                            <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-500 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                                <h3 onClick={() => handleToCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                            <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
+                                                <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                             </div>
                                         </div>
                                         <div className='mt-[10px]'>
@@ -112,9 +128,9 @@ const Shop = () => {
                                         <div className='absolute top-0 p-[20px]'>
                                             <h3 className='bg-red-500 w-[50px] text-center text-[14px] font-semibold rounded-[5px]'>{item.discountPercentage}%</h3>
                                         </div>
-                                        <div className='absolute right-0 top-0 p-[20px] flex flex-col gap-2'>
-                                            <span className='bg-white p-1 text-[20px] rounded-full'><CiHeart /></span>
-                                            <span className='bg-white p-1 text-[20px] rounded-full'><IoEyeOutline /></span>
+                                        <div className='absolute right-0  p-[20px] flex flex-col gap-2 -top-[100px] duration-700 ease-in-out group-hover:top-0'>
+                                            <span className='bg-white p-1 text-[20px] rounded-full duration-300 ease-in-out hover:scale-125 hover:text-red-600' onClick={() => handleWishList(item)}><CiHeart /></span>
+                                            <span className='bg-white p-1 text-[20px] rounded-full duration-300 ease-in-out hover:scale-125 hover:text-red-600'><IoEyeOutline /></span>
                                         </div>
                                     </div>
                                 ))}

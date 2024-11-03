@@ -40,13 +40,13 @@ const Header = () => {
 
     }
 
-    // document.addEventListener("click", (e) => {
-    //     if (accountRef.current.contains(e.target)) {
-    //         setAccountShow(!accountShow)
-    //     } else {
-    //         setAccountShow(false)
-    //     }
-    // })
+    document.addEventListener("click", (e) => {
+        if (accountRef.current.contains(e.target)) {
+            setAccountShow(!accountShow)
+        } else {
+            setAccountShow(false)
+        }
+    })
 
 
     return (
@@ -57,7 +57,7 @@ const Header = () => {
                     <p className='text-center'>Summer Sale For All Swim Suits And Free Express Delivery-Off 50%!  <Link to="/shop"><span className='font-bold hover:text-red-500'> ShopNow</span></Link></p>
                     <h3 className='flex items-center gap-2'>English <FaChevronDown /></h3>
                 </div>
-                <div className="container mx-auto ">
+                <div className="container mx-auto">
                     <div className='flex items-center justify-between gap-2 h-[80px] relative'>
                         <Link to="/"><h1 className='text-[50px] font-bold text-yellow-500'>Exclusive</h1></Link>
                         <div>
