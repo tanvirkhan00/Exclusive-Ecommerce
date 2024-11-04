@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
 import { apiData } from './ContextApi';
+import { ToastContainer, toast } from 'react-toastify';
+import { addToCart, WishListProduct } from './Slice/CartSlice';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // React Icons
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
@@ -8,24 +12,22 @@ import { CiStar } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
-import { addToCart, WishListProduct } from './Slice/CartSlice';
-import { useDispatch } from 'react-redux';
 
 const ExploreProducts = () => {
 
-    let dispatch =useDispatch()
+    let dispatch = useDispatch()
     let info = useContext(apiData)
     let filterProducts = info.filter((item) => item.id <= 8)
 
-     // Add Cart
-     let handleCart =(itemId) => {
-        dispatch(addToCart({...itemId, qty:1}))
+    // Add Cart
+    let handleCart = (itemId) => {
+        dispatch(addToCart({ ...itemId, qty: 1 }))
+        toast("Added Successfull")
     }
 
     // Add WishList
-    let handleWishList =(itemId) => {
-        dispatch(WishListProduct({...itemId, qty:1}))
+    let handleWishList = (itemId) => {
+        dispatch(WishListProduct({ ...itemId, qty: 1 }))
     }
     return (
         <>
@@ -105,6 +107,18 @@ const ExploreProducts = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
                 </div>
             </section>
 

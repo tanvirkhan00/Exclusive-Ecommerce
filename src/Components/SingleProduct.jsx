@@ -1,13 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { addToCart, WishListProduct } from './Slice/CartSlice';
+import { useDispatch } from 'react-redux';
+import RelatedProducts from './RelatedProducts';
+import { apiData } from './ContextApi';
+import { ToastContainer } from 'react-toastify';
+
 
 // Icons
 import { IoRefreshCircleOutline } from "react-icons/io5";
 import { TbCar } from "react-icons/tb";
 import { FaStar } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { apiData } from './ContextApi';
-import RelatedProducts from './RelatedProducts';
 
 
 
@@ -16,6 +20,7 @@ import RelatedProducts from './RelatedProducts';
 const SingleProduct = () => {
 
     const [info, setInfo] = useState(null);
+    let dispatch = useDispatch()
 
     const { id } = useParams();
 
@@ -34,6 +39,16 @@ const SingleProduct = () => {
 
     let products = useContext(apiData)
     let filterProducts = products.filter((item) => item.category == info.category)
+
+    // Add Cart
+    let handleCart = (itemId) => {
+        dispatch(addToCart({ ...itemId, qty: 1 }))
+    }
+
+    // Add wishList
+    let handleWishList = (itemId) => {
+        dispatch(WishListProduct({ ...itemId, qty: 1 }))
+    }
 
 
     return (
@@ -71,8 +86,8 @@ const SingleProduct = () => {
                             </div>
                             <div className='flex items-center gap-3 mt-2'>
                                 <input className='border-2 border-slate-600 outline-none py-1 rounded-md px-2 ' type="number" placeholder='1' />
-                                <button className='bg-red-500 px-10 py-2 text-white font-semibold rounded-md'>Buy Now</button>
-                                <span className='border-2 border-slate-500 rounded-md px-2 py-2 text-[20px]'><IoMdHeartEmpty /></span>
+                                <button className='bg-red-500 px-10 py-2 text-white font-semibold rounded-md' onClick={() => handleCart(info)}>Buy Now</button>
+                                <span className='border-2 border-slate-500 rounded-md px-2 py-2 text-[20px]' onClick={() => handleWishList(info)}><IoMdHeartEmpty /></span>
                             </div>
                             <div className='mt-5'>
                                 <div className='flex items-center gap-4 border-2 border-slate-500 py-2 px-4'>
@@ -92,6 +107,18 @@ const SingleProduct = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
                 </div>
             </section>
 

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify';
 
 export const CartSlice = createSlice({
   name: 'product',
@@ -18,7 +19,7 @@ export const CartSlice = createSlice({
         state.CartItem[find].qty += 1
         localStorage.setItem("cart", JSON.stringify(state.CartItem))
       }
-      alert("added Successful")
+      toast("Added Successfull")
     }),
     increment: ((state, action) => {
       state.CartItem[action.payload].qty += 1
@@ -34,6 +35,7 @@ export const CartSlice = createSlice({
     deletProduct: ((state, action) => {
       state.CartItem.splice(action.payload, 1)
       localStorage.setItem("cart", JSON.stringify(state.CartItem))
+      toast("Delete Successfull")
     }),
     WishListProduct:((state, action) => {
       let find =state.WishListItem.findIndex((item) => item.id == action.payload.id)
@@ -41,14 +43,15 @@ export const CartSlice = createSlice({
       if ( find == -1) {
         state.WishListItem = [...state.WishListItem, action.payload]
         localStorage.setItem("wishlist", JSON.stringify(state.WishListItem))
-        alert("added Successful")
+        toast("Added Successfull")
       } else {
-        alert("Already Added")
+        alert("Opps! Sorry , Already Added")
       }
     }),
     deletItem: ((state, action) => {
       state.WishListItem.splice(action.payload, 1)
       localStorage.setItem("wishlist", JSON.stringify(state.WishListItem))
+      alert("Delete Item")
     }),
   }
 })

@@ -70,7 +70,7 @@ const BillingDetails = () => {
                                             <h4>{item.title}</h4>
                                         </div>
                                         <span className='basis-[10%]'>{item.qty}*</span>
-                                        <h4 className='basis-[20%]'>${item.price}</h4>
+                                        <h4 className='basis-[20%] text-end'>${item.price}</h4>
                                     </div>
                                 ))}
                             </div>

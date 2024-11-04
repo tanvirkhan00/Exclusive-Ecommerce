@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { apiData } from './ContextApi';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart, WishListProduct } from './Slice/CartSlice';
+import { ToastContainer } from 'react-toastify';
+
+
 
 // Icon
 import { CiStar } from "react-icons/ci";
@@ -13,6 +18,19 @@ const ForYouProducts = () => {
 
     let info = useContext(apiData)
     let filterProducts = info.filter((item) => item.id >= 25 == item.id <= 28)
+    let dispatch = useDispatch()
+
+    // Add Cart
+    let handleCart = (itemId) => {
+        dispatch(addToCart({ ...itemId, qty: 1 }))
+    }
+
+    // Add WishList
+    let handleWishList = (itemId) => {
+        dispatch(WishListProduct({ ...itemId, qty: 1 }))
+    }
+
+
     return (
         <>
 
@@ -58,6 +76,18 @@ const ForYouProducts = () => {
                                 </div>
                             ))}
                         </div>
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={1000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </div>
                 </div>
             </section>

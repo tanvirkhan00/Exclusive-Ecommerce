@@ -12,6 +12,7 @@ import { FaShopify } from "react-icons/fa6";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaRegStar } from "react-icons/fa6";
 import { CiLogout } from "react-icons/ci";
+import { useSelector } from 'react-redux';
 
 
 const Header = () => {
@@ -48,6 +49,15 @@ const Header = () => {
         }
     })
 
+    // Cart Quamtity
+    let cartQuantity = useSelector((state) => state.product.CartItem)
+
+    let arrayLength =cartQuantity.length
+    
+    
+    
+    
+
 
     return (
         <>
@@ -64,6 +74,7 @@ const Header = () => {
                             <ul className='flex items-center gap-6'>
                                 <Link to="/"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Home</li></Link>
                                 <Link to="/contact"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Contact</li></Link>
+                                <Link to="/shop"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Shop</li></Link>
                                 <Link to="/about"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">About</li></Link>
                                 <Link to="/signUp"><li className="border-b-4 border-transparent duration-300 ease-in-out hover:-translate-y-1 hover:border-black">Sign Up</li></Link>
                             </ul>
@@ -86,8 +97,11 @@ const Header = () => {
                                     </div>
                                 }
                             </div>
-                            <Link to="/wishList"><a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><CiHeart /></a></Link>
-                            <Link to="/cart"> <a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><IoCartOutline /></a> </Link>
+                            <a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><Link to="/wishList"><CiHeart /></Link></a>
+                            <div className='relative'>
+                                <a className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><Link to="/cart"><IoCartOutline /> </Link></a>
+                                <span className='absolute -top-4 -right-2 bg-red-500 rounded-full w-[20px] h-[20px] text-white flex items-center justify-center text-[14px]'>{arrayLength}</span>
+                            </div>
                             <a ref={accountRef} className='cursor-pointer text-[20px] duration-300 hover:text-red-600 hover:-translate-y-1'><VscAccount /></a>
                         </div>
                         {accountShow &&

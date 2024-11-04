@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { apiData } from './ContextApi';
 import { Link } from 'react-router-dom';
+import { addToCart, WishListProduct } from './Slice/CartSlice';
+import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+
+
 
 
 // React Icon
@@ -8,24 +13,22 @@ import { CiStar } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
-import { useDispatch } from 'react-redux';
-import { addToCart, WishListProduct } from './Slice/CartSlice';
 
 const BestSelling = () => {
 
-    let dispatch =useDispatch()
+    let dispatch = useDispatch()
 
     let info = useContext(apiData)
     let filterProducts = info.filter((item) => item.id >= 22 == item.id <= 25)
 
     // Add Cart
-    let handleCart =(itemId) => {
-        dispatch(addToCart({...itemId, qty:1}))
+    let handleCart = (itemId) => {
+        dispatch(addToCart({ ...itemId, qty: 1 }))
     }
 
     // Add WishList
-    let handleWishList =(itemId) => {
-        dispatch(WishListProduct({...itemId, qty:1}))
+    let handleWishList = (itemId) => {
+        dispatch(WishListProduct({ ...itemId, qty: 1 }))
     }
 
     return (
@@ -74,6 +77,18 @@ const BestSelling = () => {
                             ))}
                         </div>
                     </div>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
                 </div>
             </section>
         </>

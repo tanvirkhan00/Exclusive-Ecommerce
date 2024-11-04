@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { deletItem } from './Slice/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+
 
 // React Icon
 import { CiStar } from "react-icons/ci";
 import { HiOutlineTrash } from "react-icons/hi2";
 import { BsCartPlusFill } from "react-icons/bs";
-import { useDispatch, useSelector } from 'react-redux';
-import { deletItem } from './Slice/CartSlice';
 
 
 
@@ -14,15 +16,15 @@ const WishlistProducts = () => {
 
     let WishList = useSelector((state) => state.product.WishListItem
     )
-    let dispatch =useDispatch()
-    let deleteItem =(itemId) => {
-        dispatch(deletItem(itemId))  
+    let dispatch = useDispatch()
+    let deleteItem = (itemId) => {
+        dispatch(deletItem(itemId))
     }
 
     // wishList Length
     let arrayLength = WishList.length
 
-    
+
 
 
 
@@ -62,11 +64,23 @@ const WishlistProducts = () => {
                                         <h3 className='bg-red-500 w-[50px] text-center text-[14px] font-semibold rounded-[5px]'>{item.discountPercentage}%</h3>
                                     </div>
                                     <div className='absolute right-0 -top-12 p-[20px] flex flex-col gap-2 duration-700 ease-in-out group-hover:top-0'>
-                                        <span className='bg-white p-1 text-[20px] rounded-full cursor-pointer duration-300 ease-in-out hover:scale-110 hover:text-red-500 ' onClick={() =>deleteItem(index)}><HiOutlineTrash /></span>
+                                        <span className='bg-white p-1 text-[20px] rounded-full cursor-pointer duration-300 ease-in-out hover:scale-110 hover:text-red-500 ' onClick={() => deleteItem(index)}><HiOutlineTrash /></span>
                                     </div>
                                 </div>
                             ))}
                         </div>
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={1000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </div>
                 </div>
             </section>

@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { decrement, deletProduct, increment } from './Slice/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 // Icon
 import { IoIosCloseCircle } from "react-icons/io";
-import { useDispatch, useSelector } from 'react-redux';
-import { decrement, deletProduct, increment } from './Slice/CartSlice';
 
 
 const Cart = () => {
 
     let cartItems = useSelector((state) => state.product.CartItem)
 
-    let dispatch =useDispatch()
+    let dispatch = useDispatch()
 
     let handleIncrement = (itemId) => {
         dispatch(increment(itemId))
@@ -23,14 +25,14 @@ const Cart = () => {
 
     // Plus total price
 
-    let total= cartItems.reduce((acc, curr) => {
+    let total = cartItems.reduce((acc, curr) => {
         return acc + (curr.price * curr.qty)
-    },0)
+    }, 0)
 
     let deleteItem = (itemId) => {
         dispatch(deletProduct(itemId))
     }
-    
+
 
 
 
@@ -50,20 +52,20 @@ const Cart = () => {
                             </ul>
                         </div>
                         <div className='flex flex-col  gap-6'>
-                            {cartItems.map((item,index) => (
+                            {cartItems.map((item, index) => (
                                 <div className='flex items-center justify-between gap-2 group px-5 shadow-slate-600 shadow-sm py-1'>
                                     <div className='flex items-center gap-4 relative basis-[23%]'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[70px]' /></Link>
                                         <h2>{item.title}</h2>
-                                        <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 ' onClick={() =>deleteItem(index)}><IoIosCloseCircle /></span>
+                                        <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 ' onClick={() => deleteItem(index)}><IoIosCloseCircle /></span>
                                     </div>
                                     <div className='basis-[23%] text-center'><h4>{item.price}</h4></div>
                                     <div className='basis-[23%] text-center flex justify-center'>
 
                                         <div className='w-[100px] border-2 border-black flex items-center justify-center gap-4 text-[20px]'>
-                                            <span className='cursor-pointer text-[25px] hover:text-red-600'  onClick={()=>handleIncrement(index)}>+</span>
+                                            <span className='cursor-pointer text-[25px] hover:text-red-600' onClick={() => handleIncrement(index)}>+</span>
                                             <span>{item.qty}</span>
-                                            <span className='cursor-pointer hover:text-red-600'onClick={()=>handleDecrement(index)}>-</span>
+                                            <span className='cursor-pointer hover:text-red-600' onClick={() => handleDecrement(index)}>-</span>
                                         </div>
                                     </div>
                                     <div className='basis-[23%] text-end'>
@@ -106,6 +108,18 @@ const Cart = () => {
                                 </button>
                             </div>
                         </div>
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={1000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </div>
                 </div>
             </section>
