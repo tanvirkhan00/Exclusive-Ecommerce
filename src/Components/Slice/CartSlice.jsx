@@ -14,12 +14,14 @@ export const CartSlice = createSlice({
       if (find == -1) {
         state.CartItem = [...state.CartItem, action.payload]
         localStorage.setItem("cart", JSON.stringify(state.CartItem))
+        toast("Added Successfull")
 
       } else {
         state.CartItem[find].qty += 1
         localStorage.setItem("cart", JSON.stringify(state.CartItem))
+        toast("Already Have & Quantity Increase")
       }
-      toast("Added Successfull")
+      
     }),
     increment: ((state, action) => {
       state.CartItem[action.payload].qty += 1
@@ -40,7 +42,7 @@ export const CartSlice = createSlice({
     WishListProduct:((state, action) => {
       let find =state.WishListItem.findIndex((item) => item.id == action.payload.id)
       
-      if ( find == -1) {
+      if ( find === -1) {
         state.WishListItem = [...state.WishListItem, action.payload]
         localStorage.setItem("wishlist", JSON.stringify(state.WishListItem))
         toast("Added Successfull")
@@ -51,7 +53,7 @@ export const CartSlice = createSlice({
     deletItem: ((state, action) => {
       state.WishListItem.splice(action.payload, 1)
       localStorage.setItem("wishlist", JSON.stringify(state.WishListItem))
-      alert("Delete Item")
+      alert("Are you delete Item?")
     }),
   }
 })

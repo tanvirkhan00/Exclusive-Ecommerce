@@ -41,7 +41,7 @@ const Cart = () => {
         <>
 
             <section>
-                <div className="container my-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px] mx-auto">
                     <div className='flex flex-col gap-[30px]'>
                         <div>
                             <ul className='flex items-center justify-between gap-2 px-5 shadow-slate-600 shadow-sm py-2'>

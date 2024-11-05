@@ -6,7 +6,7 @@ const Account = () => {
         <>
 
             <section>
-                <div className="container mx-auto my-[50px]">
+                <div className="container mx-auto my-[150px]">
                     <h1 className='text-end'>Welcome! <span className='text-red-600'>Tanvir Khan</span></h1>
                     <div className='flex justify-between gap-4 mt-5'>
                         <div className='basis-[30%] flex flex-col gap-6'>

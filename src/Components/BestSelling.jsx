@@ -34,21 +34,21 @@ const BestSelling = () => {
     return (
         <>
             <section>
-                <div className="container mx-auto mt-[50px]">
+                <div className="container mx-auto mt-[50px] px-[10px]">
                     <div>
                         <div className='flex items-center gap-[10px]'>
                             <span className='w-[10px] h-[20px] bg-red-600'></span>
                             <h1 className='font-semibold text-red-600'>This Month</h1>
                         </div>
                         <div className='flex justify-between items-center mt-[20px]'>
-                            <h1 className='text-[35px] font-semibold'>Best Selling Products</h1>
+                            <h1 className='text-[25px] font-semibold'>Best Selling Products</h1>
                             <Link to="/shop"><button className='w-[100px] text-center py-2 rounded-md border-2 border-black duration-300 hover:bg-red-600'>
                                 View all
                             </button></Link>
                         </div>
                         <div className='flex justify-between gap-4 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (
-                                <div className='relative basis-[24%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[48%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>

@@ -16,9 +16,9 @@ const Footer = () => {
     return (
         <>
 
-            <footer className='bg-black'>
+            <footer className='bg-black px-[10px]'>
                 <div className="container mx-auto">
-                    <div className='grid grid-cols-5 gap-[20px] text-white py-[50px] text-[12px]'>
+                    <div className='grid grid-cols-2 gap-[20px] text-white py-[50px] text-[12px]'>
                         <div className='flex flex-col gap-2'>
                             <h1 className='text-[30px] font-bold'>Exclusive</h1>
                             <h3 className='text-[20px]'>Subscribe</h3>

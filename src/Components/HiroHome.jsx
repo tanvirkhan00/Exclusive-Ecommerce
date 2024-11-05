@@ -28,19 +28,18 @@ const HiroHome = () => {
     return (
         <>
             <section>
-                <div className="container my-[50px] mx-auto">
-                    <div className="slider-container w-[70%] mx-auto">
+                <div className="container mt-[150px] mb-[50px] mx-auto">
+                    <div className="slider-container w-[100%] mx-auto">
                         <Slider {...settings}>
                             <div>
                                 <div className='bg-black text-white flex items-center'>
                                     <div className=' pl-[40px]'>
                                         <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <h2 className='text-[30px]'>Up to 10% off Voucher</h2>
                                         <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
                                     </div>
-
                                     <div className=''>
-                                        <img src={HiroImg} alt="" className='h-[350px]' />
+                                        <img src={HiroImg} alt="" className='h-[250px]' />
                                     </div>
                                 </div>
                             </div>
@@ -48,12 +47,11 @@ const HiroHome = () => {
                                 <div className='bg-black text-white flex items-center'>
                                     <div className=' pl-[40px]'>
                                         <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <h2 className='text-[30px]'>Up to 10% off Voucher</h2>
                                         <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
                                     </div>
-
                                     <div className=''>
-                                        <img src={HiroImg} alt="" className='h-[350px]' />
+                                        <img src={HiroImg} alt="" className='h-[250px]' />
                                     </div>
                                 </div>
                             </div>
@@ -61,12 +59,11 @@ const HiroHome = () => {
                                 <div className='bg-black text-white flex items-center'>
                                     <div className=' pl-[40px]'>
                                         <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <h2 className='text-[30px]'>Up to 10% off Voucher</h2>
                                         <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
                                     </div>
-
                                     <div className=''>
-                                        <img src={HiroImg} alt="" className='h-[350px]' />
+                                        <img src={HiroImg} alt="" className='h-[250px]' />
                                     </div>
                                 </div>
                             </div>
@@ -74,12 +71,11 @@ const HiroHome = () => {
                                 <div className='bg-black text-white flex items-center'>
                                     <div className=' pl-[40px]'>
                                         <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <h2 className='text-[30px]'>Up to 10% off Voucher</h2>
                                         <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
                                     </div>
-
                                     <div className=''>
-                                        <img src={HiroImg} alt="" className='h-[350px]' />
+                                        <img src={HiroImg} alt="" className='h-[250px]' />
                                     </div>
                                 </div>
                             </div>
@@ -87,12 +83,11 @@ const HiroHome = () => {
                                 <div className='bg-black text-white flex items-center'>
                                     <div className=' pl-[40px]'>
                                         <h3 className='flex items-center'><span className='text-[50px]'><FaApple /></span> Iphone 14 Series </h3>
-                                        <h2 className='text-[48px]'>Up to 10% off Voucher</h2>
+                                        <h2 className='text-[30px]'>Up to 10% off Voucher</h2>
                                         <a className='flex items-center border-b-2 border-white max-w-fit gap-2'>Shop Now <span><GoArrowRight /></span></a>
                                     </div>
-
                                     <div className=''>
-                                        <img src={HiroImg} alt="" className='h-[350px]' />
+                                        <img src={HiroImg} alt="" className='h-[250px]' />
                                     </div>
                                 </div>
                             </div>

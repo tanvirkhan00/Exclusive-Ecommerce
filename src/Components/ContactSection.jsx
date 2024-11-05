@@ -11,7 +11,7 @@ const ContactSection = () => {
         <>
 
             <section>
-                <div className="container my-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px] mx-auto">
                     <div className='flex justify-between gap-2 flex-wrap'>
                         <div className='basis-[25%] shadow-lg p-10 flex flex-col gap-5 text-[14px]'>
                             <div className='flex flex-col gap-2 border-b-2 border-slate-300 pb-5'>

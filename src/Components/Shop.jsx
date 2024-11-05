@@ -28,6 +28,7 @@ const Shop = () => {
     let handleCategory = (cat) => {
         let filteredCat = products.filter((item) => item.category == cat)
         setCategoryItem(filteredCat)
+        setPriceItem([])
     }
 
 
@@ -35,6 +36,7 @@ const Shop = () => {
     let priceWiseItems = (value) => {
         let priceFilter = products.filter((item) => item.price >= value.low && item.price <= value.high)
         setPriceItem(priceFilter)
+        setCategoryItem([])
     }
 
 
@@ -55,7 +57,7 @@ const Shop = () => {
         <>
 
             <section>
-                <div className="container my-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px] mx-auto">
                     <div className='flex justify-between gap-2 items-start'>
                         <div className='flex flex-col gap-10 basis-[25%] border-r-2 border-slate-500 '>
                             <div className='h-[400px] overflow-y-scroll'>

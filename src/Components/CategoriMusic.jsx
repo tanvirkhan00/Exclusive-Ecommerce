@@ -9,10 +9,10 @@ const CategoriMusic = () => {
 
             <section>
                 <div className="container mx-auto mt-[50px]">
-                    <div className='flex flex-wrap justify-between items-center bg-black gap-[20px] py-[50px] px-[50px]'>
+                    <div className='flex flex-wrap justify-between items-center bg-black gap-[20px] gap-y-10 py-[50px] px-5'>
                         <div className='basis-[35%] text-white'>
                             <h4 className='text-green-600'>Categories</h4>
-                            <h1 className='text-[48px]'>Enhance Your Music Experience</h1>
+                            <h1 className='text-[30px]'>Enhance Your Music Experience</h1>
                             <div className='flex items-center gap-[20px] mt-[20px]'>
                                 <div className='h-[60px] w-[60px] bg-white rounded-full text-black flex flex-col text-center justify-center font-bold leading-[15px] text-[12px]'>
                                     <h3>23</h3>
@@ -36,7 +36,7 @@ const CategoriMusic = () => {
                             </button>
                         </div>
                         <div className='basis-[50%]'>
-                            <img src={jblMusic} alt="" className='h-[330px]' />
+                            <img src={jblMusic} alt="" className='h-[170px]' />
                         </div>
                     </div>
                 </div>

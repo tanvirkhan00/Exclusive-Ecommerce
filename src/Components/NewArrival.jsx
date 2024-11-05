@@ -11,24 +11,24 @@ const NewArrival = () => {
         <>
 
             <section>
-                <div className="container mt-[50px] mx-auto">
+                <div className="container mt-[50px] mx-auto px-[10px]">
                     <div>
                         <div className='flex items-center gap-[10px]'>
                             <span className='w-[10px] h-[20px] bg-red-600'></span>
                             <h1 className='font-semibold text-red-600'>Featured</h1>
                         </div>
                         <h1 className='text-[35px] font-semibold mt-[20px]'>New Arriaval</h1>
-                        <div className='flex items-center justify-between mt-[20px] gap-[20px]'>
-                            <div className='relative basis-[48%] bg-black h-full pt-[80px]'>
+                        <div className='flex flex-wrap items-center justify-between mt-[20px] gap-[20px]'>
+                            <div className='relative bg-black h-full pt-[80px]'>
                                 <img src={speaker1} alt="" />
-                                <div className='absolute bottom-0 p-[50px] text-white w-[50%] flex flex-col gap-2'>
+                                <div className='absolute bottom-0 p-[50px] text-white w-[70%] flex flex-col gap-2'>
                                     <h1 className='text-[30px] font-semibold'>Play Station 5</h1>
                                     <p className='font-semibold text-[14px]'>Black and White verson of the FS5 coming out on sale</p>
                                     <a className='border-b-2 border-white max-w-fit'>Shop Now</a>
                                 </div>
                             </div>
-                            <div className='basis-[48%] flex flex-col gap-[20px]'>
-                                <div className='relative  basis-[100%] flex items-end'>
+                            <div className='flex flex-col gap-[20px]'>
+                                <div className='relative flex items-end'>
                                     <img src={woman} alt="" className='w-full h-[290px]' />
                                     <div className='absolute bottom-0 p-[30px] text-white flex flex-col gap-2'>
                                         <h1 className='text-[30px] font-semibold'>Woman's Collections</h1>

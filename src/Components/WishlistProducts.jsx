@@ -32,7 +32,7 @@ const WishlistProducts = () => {
         <>
 
             <section>
-                <div className="container mx-auto mt-[50px]">
+                <div className="container mx-auto mt-[150px]">
                     <div>
                         <div className='flex items-center justify-between'>
                             <h3 className='font-semibold text-[20px]'>Wishlist <span className='text-red-500'>({arrayLength})</span></h3>

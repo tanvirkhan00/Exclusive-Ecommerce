@@ -8,7 +8,7 @@ const LogInSection = () => {
         <>
 
             <section>
-                <div className="container mx-auto my-[50px]">
+                <div className="container mx-auto mt-[150px] mb-[50px]">
                     <div className='flex flex-wrap gap-[150px] items-center'>
                         <div className='basis-[48%]'>
                             <img src={sideImg} alt="" />

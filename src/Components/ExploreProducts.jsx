@@ -22,7 +22,6 @@ const ExploreProducts = () => {
     // Add Cart
     let handleCart = (itemId) => {
         dispatch(addToCart({ ...itemId, qty: 1 }))
-        toast("Added Successfull")
     }
 
     // Add WishList
@@ -33,13 +32,13 @@ const ExploreProducts = () => {
         <>
 
             <section>
-                <div className="container mt-[50px] mx-auto border-b-2 border-slate-400 pb-[50px]">
+                <div className="container mt-[50px] mx-auto border-b-2 border-slate-400 pb-[50px] px-[10px]">
                     <div className='flex flex-col gap-[20px]'>
                         <div className='flex items-center gap-[10px]'>
                             <span className='w-[10px] h-[20px] bg-red-600'></span>
                             <h1 className='font-semibold text-red-600'>Our Products</h1>
                         </div>
-                        <div className='flex items-center justify-between'>
+                        <div className='flex flex-col items-center justify-between'>
                             <h1 className='font-semibold text-[35px]'>Explore Our Products</h1>
                             <div className='flex items-center gap-[20px] text-center'>
                                 <div>
@@ -68,14 +67,10 @@ const ExploreProducts = () => {
                                     <h4 className='font-bold text-[35px]'>56</h4>
                                 </div>
                             </div>
-                            <div className='flex items-center gap-[10px]'>
-                                <span className=' text-[20px]'><FaRegArrowAltCircleLeft /></span>
-                                <span className=' text-[20px]'><FaRegArrowAltCircleRight /></span>
-                            </div>
                         </div>
                         <div className='flex justify-between gap-3 items-center flex-wrap'>
                             {filterProducts.map((item) => (
-                                <div className='relative basis-[24%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[48%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>

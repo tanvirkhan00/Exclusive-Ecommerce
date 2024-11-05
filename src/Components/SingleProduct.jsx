@@ -34,7 +34,7 @@ const SingleProduct = () => {
     }, [id])
 
     if (!info) {
-        return <p className='text-center py-[30px]'>Loading product details...</p>;
+        return <p className='text-center py-[150px]'>Loading product details...</p>;
     }
 
     let products = useContext(apiData)
@@ -54,7 +54,7 @@ const SingleProduct = () => {
     return (
         <>
             <section>
-                <div className="container mx-auto mt-[50px]">
+                <div className="container mx-auto mt-[150px]">
                     <div className='flex justify-between flex-wrap gap-2'>
                         <div className='basis-[60%] flex items-center justify-center'>
                             <img src={info.thumbnail} alt="" className='w-[60%]' />

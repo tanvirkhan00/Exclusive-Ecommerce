@@ -35,7 +35,7 @@ const TeamMember = () => {
                             <div>
                                 <div>
                                     <img src={Team1} alt="" />
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Tom Cruise</h2>
                                         <p>Founder & Chairmen</p>
                                         <div className='flex items-center gap-3'>
@@ -49,7 +49,7 @@ const TeamMember = () => {
                             <div>
                                 <div>
                                     <img src={Team2} alt="" />
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Emma Watson</h2>
                                         <p>Managing Director</p>
                                         <div className='flex items-center gap-3'>
@@ -63,7 +63,7 @@ const TeamMember = () => {
                             <div>
                                 <div>
                                     <img src={Team3} alt="" />
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Will Smith</h2>
                                         <p>Product Designer</p>
                                         <div className='flex items-center gap-3'>
@@ -77,7 +77,7 @@ const TeamMember = () => {
                             <div>
                                 <div>
                                     <img src={Team1} alt="" />
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Tom Cruise</h2>
                                         <p>Founder & Chairmen</p>
                                         <div className='flex items-center gap-3'>
@@ -91,7 +91,7 @@ const TeamMember = () => {
                             <div>
                                 <div>
                                     <img src={Team2} alt="" />
-                                    <div className='flex flex-col gap-2'>
+                                    <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Emma Watson</h2>
                                         <p>Managing Director</p>
                                         <div className='flex items-center gap-3'>

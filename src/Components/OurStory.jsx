@@ -8,7 +8,7 @@ const OurStory = () => {
         <>
             
             <section>
-                <div className="container mt-[50px] mx-auto">
+                <div className="container mt-[150px] mx-auto">
                     <div className='flex justify-between items-center flex-wrap gap-2'>
                         <div className='flex flex-col gap-4 basis-[35%]'>
                             <h1 className='text-[30px] font-semibold'>Our Story</h1>

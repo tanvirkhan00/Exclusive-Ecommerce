@@ -23,7 +23,7 @@ const BillingDetails = () => {
     return (
         <>
             <section>
-                <div className="container my-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px] mx-auto">
                     <h1 className='text-[35px] font-semibold'>Billing Details</h1>
                     <div className='flex justify-between gap-2 flex-wrap mt-[40px]'>
                         <div className='basis-[40%]'>
@@ -64,7 +64,7 @@ const BillingDetails = () => {
                         <div className='flex flex-col gap-6 basis-[40%] mt-5'>
                             <div className='flex flex-col gap-4'>
                                 {cartProduct.map((item) => (
-                                    <div className='flex items-center gap-2 justify-between shadow-sm shadow-black px-2 py-1'>
+                                    <div className='flex items-center gap-2 justify-between shadow-sm shadow-black px-2 py-1 duration-500 ease-in-out hover:-translate-y-2'>
                                         <div className='flex items-center gap-3 basis-[60%]'>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[50px]' /></Link>
                                             <h4>{item.title}</h4>
