@@ -63,7 +63,7 @@ const Header = () => {
     return (
         <>
 
-            <header className='border-b-4 border-yellow-500 mx-auto fixed w-full bg-blue-700 z-50 top-0'>
+            <header className='border-b-4 border-yellow-500 mx-auto fixed w-full bg-blue-700 z-50 top-0 left-0'>
                 <div className="container px-[10px]">
                     <div className='flex items-center justify-between gap-2 h-[80px] relative '>
                         <Link to="/"><h1 className='text-[30px] font-bold text-yellow-500'>Exclusive</h1></Link>

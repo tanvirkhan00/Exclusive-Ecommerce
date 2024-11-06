@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 // Img
 import sideImg from "/src/assets/SideImage.png"
 
-
 // Icon
 import { FcGoogle } from "react-icons/fc";
 
@@ -16,11 +15,11 @@ const SignUpPage = () => {
 
             <section>
                 <div className="container mx-auto mt-[150px] mb-[50px]">
-                    <div className='flex flex-wrap gap-[150px] items-center'>
-                        <div className='basis-[48%]'>
+                    <div className='flex flex-wrap gap-[50px] items-center'>
+                        <div className=''>
                             <img src={sideImg} alt="" />
                         </div>
-                        <div className='basis-[30%] flex flex-col gap-[20px]'>
+                        <div className='flex flex-col gap-[20px] w-full'>
                             <h1 className='text-[35px] font-semibold'>Create an account</h1>
                             <h3 className='text-[14px]'>Enter your details below</h3>
                             <form className='flex flex-col gap-4'>

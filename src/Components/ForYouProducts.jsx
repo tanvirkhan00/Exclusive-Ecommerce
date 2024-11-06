@@ -48,16 +48,16 @@ const ForYouProducts = () => {
                         </div>
                         <div className='flex justify-between gap-3 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (
-                                <div className='relative basis-[24%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[31%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                            <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                            <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
                                     <div className='mt-[10px]'>
-                                        <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                        <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
+                                        <h1 className='text-[14px] font-semibold '>{item.title}</h1>
+                                        <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                         <div className='flex'>
                                             <span className=' text-yellow-600'><CiStar /></span>
                                             <span className=' text-yellow-600'><CiStar /></span>
@@ -66,8 +66,8 @@ const ForYouProducts = () => {
                                             <span className=' text-yellow-600'><CiStar /></span>
                                         </div>
                                     </div>
-                                    <div className='absolute top-0 p-[20px]'>
-                                        <h3 className='bg-red-500 w-[50px] text-center text-[14px] font-semibold rounded-[5px]'>{item.discountPercentage}%</h3>
+                                    <div className='absolute top-0 p-[10px]'>
+                                        <h3 className='bg-red-500 w-[40px] text-center text-[10px] font-semibold rounded-[5px]'>{item.discountPercentage}%</h3>
                                     </div>
                                     <div className='absolute right-0  p-[20px] flex flex-col gap-2 -top-[100px] duration-700 ease-in-out group-hover:top-0'>
                                         <span className='bg-white p-1 text-[20px] rounded-full duration-300 ease-in-out hover:scale-125 hover:text-red-600' onClick={() => handleWishList(item)}><CiHeart /></span>

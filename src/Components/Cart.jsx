@@ -45,26 +45,28 @@ const Cart = () => {
                     <div className='flex flex-col gap-[30px]'>
                         <div>
                             <ul className='flex items-center justify-between gap-2 px-5 shadow-slate-600 shadow-sm py-2'>
-                                <li className='basis-[23%] pl-10'>Product</li>
-                                <li className='basis-[23%] text-center'>Price</li>
-                                <li className='basis-[23%] text-center'>Quantity</li>
+                                <li className='basis-[40%] pl-10'>Product</li>
+                                <li className='basis-[10%] text-center'>Price</li>
+                                <li className='basis-[20%] text-center'>Quantity</li>
                                 <li className='basis-[23%] text-end'>Subtotal</li>
                             </ul>
                         </div>
                         <div className='flex flex-col  gap-6'>
                             {cartItems.map((item, index) => (
-                                <div className='flex items-center justify-between gap-2 group px-5 shadow-slate-600 shadow-sm py-1'>
-                                    <div className='flex items-center gap-4 relative basis-[23%]'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[70px]' /></Link>
-                                        <h2>{item.title}</h2>
+                                <div className='flex items-center justify-between gap-2 group px-2 shadow-slate-600 shadow-sm py-1'>
+                                    <div className='flex items-center gap-2 relative basis-[40%]'>
+                                        <div>
+                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[50px] w-[50px]' /></Link>
+                                        </div>
+                                        <h2 className='text-[14px] text-center'>{item.title}</h2>
                                         <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 ' onClick={() => deleteItem(index)}><IoIosCloseCircle /></span>
                                     </div>
-                                    <div className='basis-[23%] text-center'><h4>{item.price}</h4></div>
-                                    <div className='basis-[23%] text-center flex justify-center'>
+                                    <div className='basis-[10%] text-center text-[14px]'><h4>{item.price}</h4></div>
+                                    <div className='basis-[20%] text-center flex justify-center'>
 
-                                        <div className='w-[100px] border-2 border-black flex items-center justify-center gap-4 text-[20px]'>
-                                            <span className='cursor-pointer text-[25px] hover:text-red-600' onClick={() => handleIncrement(index)}>+</span>
-                                            <span>{item.qty}</span>
+                                        <div className='w-[60px] border-2 border-black flex items-center justify-center gap-2 text-[20px]'>
+                                            <span className='cursor-pointer text-[20px] hover:text-red-600' onClick={() => handleIncrement(index)}>+</span>
+                                            <span className='text-[14px]'>{item.qty}</span>
                                             <span className='cursor-pointer hover:text-red-600' onClick={() => handleDecrement(index)}>-</span>
                                         </div>
                                     </div>
@@ -82,8 +84,8 @@ const Cart = () => {
                                 <a>Update Cart</a>
                             </button>
                         </div>
-                        <div className='flex justify-between gap-2 items-start mt-8'>
-                            <div className='flex items-center gap-3'>
+                        <div className='flex flex-col justify-center items-center gap-4 mt-8'>
+                            <div className='flex items-center gap-5'>
                                 <input className='outline-0 border-slate-600 border-2 rounded-md py-3 px-2' type="text" placeholder='Coupon Code' />
                                 <button className='px-7 py-3 rounded-md border-2 border-black duration-300 hover:bg-red-500'>
                                     <a>Apply Coupon</a>

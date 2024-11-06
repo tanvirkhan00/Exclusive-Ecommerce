@@ -61,20 +61,20 @@ const Shop = () => {
                     <div className='flex justify-between gap-2 items-start'>
                         <div className='flex flex-col gap-10 basis-[25%] border-r-2 border-slate-500 '>
                             <div className='h-[400px] overflow-y-scroll'>
-                                <h1 className='text-[30px] font-semibold'>Category Products</h1>
+                                <h1 className='text-[20px] font-semibold'>Category Products</h1>
                                 {category.map((item) => (
                                     <div className='mt-4'>
                                         <ul className='flex flex-col gap-2'>
                                             <li onClick={() => handleCategory(item)}>
-                                                <a className='text-[20px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
+                                                <a className='text-[14px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
                                             </li>
                                         </ul>
                                     </div>
                                 ))}
                             </div>
                             <div>
-                                <h1 className='text-[30px] font-semibold'>Pricing</h1>
-                                <div className='flex flex-col gap-2 mt-2'>
+                                <h1 className='font-semibold'>Pricing</h1>
+                                <div className='flex flex-col gap-2 mt-2 text-[14px]'>
                                     <a onClick={() => priceWiseItems({ low: 1, high: 100 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>1-100</a>
                                     <a onClick={() => priceWiseItems({ low: 101, high: 500 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>101-500</a>
                                     <a onClick={() => priceWiseItems({ low: 501, high: 1000 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>501-1000</a>
@@ -86,16 +86,16 @@ const Shop = () => {
                         {categoryItem.length > 0 ?
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {categoryItem.map((item) => (
-                                    <div className='relative basis-[32%] pb-2 overflow-hidden group'>
+                                    <div className='relative basis-[47%] pb-2 overflow-hidden group'>
                                         <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
+                                            <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                             <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                                <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                                <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                             </div>
                                         </div>
                                         <div className='mt-[10px]'>
-                                            <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                            <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
+                                            <h1 className='font-semibold '>{item.title}</h1>
+                                            <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                             <div className='flex'>
                                                 <span className=' text-yellow-600'><CiStar /></span>
                                                 <span className=' text-yellow-600'><CiStar /></span>
@@ -118,16 +118,16 @@ const Shop = () => {
                             priceItem.length > 0 ?
                                 <div className="basis-[70%] flex flex-wrap gap-4">
                                     {priceItem.map((item) => (
-                                        <div className='relative basis-[32%] pb-2 overflow-hidden group'>
+                                        <div className='relative basis-[47%] pb-2 overflow-hidden group'>
                                             <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
+                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                                 <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                                    <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                                    <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                                 </div>
                                             </div>
                                             <div className='mt-[10px]'>
-                                                <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                                <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
+                                                <h1 className=' font-semibold'>{item.title}</h1>
+                                                <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                                 <div className='flex'>
                                                     <span className=' text-yellow-600'><CiStar /></span>
                                                     <span className=' text-yellow-600'><CiStar /></span>
@@ -149,16 +149,16 @@ const Shop = () => {
                                 :
                                 <div className='basis-[70%] flex flex-wrap gap-4'>
                                     {products.map((item) => (
-                                        <div className='relative basis-[32%] pb-2 overflow-hidden group'>
+                                        <div className='relative basis-[47%] pb-2 overflow-hidden group'>
                                             <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
+                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                                 <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
-                                                    <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
+                                                    <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                                 </div>
                                             </div>
                                             <div className='mt-[10px]'>
-                                                <h1 className='text-[20px] font-semibold '>{item.title}</h1>
-                                                <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
+                                                <h1 className=' font-semibold '>{item.title}</h1>
+                                                <h3 className='text-red-500 text-[14px] font-semibold my-1'>${item.price}</h3>
                                                 <div className='flex'>
                                                     <span className=' text-yellow-600'><CiStar /></span>
                                                     <span className=' text-yellow-600'><CiStar /></span>

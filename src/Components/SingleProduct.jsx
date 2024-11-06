@@ -56,10 +56,10 @@ const SingleProduct = () => {
             <section>
                 <div className="container mx-auto mt-[150px]">
                     <div className='flex justify-between flex-wrap gap-2'>
-                        <div className='basis-[60%] flex items-center justify-center'>
-                            <img src={info.thumbnail} alt="" className='w-[60%]' />
+                        <div className=' flex items-center justify-center w-full'>
+                            <img src={info.thumbnail} alt="" className='' />
                         </div>
-                        <div className='flex flex-col gap-2 basis-[35%]'>
+                        <div className='flex flex-col gap-2'>
                             <h1 className='text-[25px] font-semibold'>{info.title}</h1>
                             <div className='flex items-center gap-2'>
                                 <span className='text-yellow-500'><FaStar /></span>
