@@ -50,25 +50,32 @@ const Header = () => {
         }
     })
 
-    // Cart Quamtity
+    // Cart Quantity
     let cartQuantity = useSelector((state) => state.product.CartItem)
 
     let arrayLength = cartQuantity.length
 
+    let menuRef = useRef()
 
+    let [menuShow, setMenuShow] = useState(false)
 
-
-
+    document.addEventListener('click', (e)=>{
+        if(menuRef.current.contains(e.target)){
+            setMenuShow(!menuShow)
+        } else {
+            setMenuShow(false)
+        }
+    })
 
     return (
         <>
 
             <header className='border-b-4 border-yellow-500 mx-auto fixed w-full bg-blue-700 z-50 top-0 left-0'>
                 <div className="container px-[10px]">
-                    <div className='flex items-center justify-between gap-2 h-[80px] relative '>
+                    <div className='flex items-center justify-between h-[80px] relative '>
                         <Link to="/"><h1 className='text-[30px] font-bold text-yellow-500'>Exclusive</h1></Link>
-                        <div className='hidden md:flex'>
-                            <ul className='flex items-center gap-6'>
+                        <div className=''>
+                            <ul className={`md:flex items-center md:gap-6 ${menuShow === true ? "block" : "hidden" }`}>
                                 <Link to="/"><li className="border-b-4 border-transparent duration-500 ease-in-out hover:-translate-y-1 hover:border-black hover:text-white">Home</li></Link>
                                 <Link to="/contact"><li className="border-b-4 border-transparent duration-500 ease-in-out hover:-translate-y-1 hover:border-black hover:text-white">Contact</li></Link>
                                 <Link to="/shop"><li className="border-b-4 border-transparent duration-500 ease-in-out hover:-translate-y-1 hover:border-black hover:text-white">Shop</li></Link>
@@ -77,7 +84,7 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className='flex items-center gap-5'>
-                            <div className='md:flex items-center gap-3 bg-slate-200 px-2 duration-300 border-2 border-transparent hover:border-black hidden'>
+                            <div className='md:flex items-center gap-3 px-2 duration-300 border-2 border-white rounded-md border-transparent md:w-[130px] lg:w-[250px]  overflow-hidden hover:border-black hidden'>
                                 <input onChange={handleSearch} value={inputValue} className='bg-transparent px-2 py-2  outline-none' type="text" placeholder='What are you looking for?' />
                                 <CiSearch />
                                 {searchItem.length > 0 &&
@@ -112,7 +119,7 @@ const Header = () => {
                                 </ul>
                             </div>
                         }
-                        <span className='text-[25px] hover:text-yellow-500 md:hidden'><CiMenuFries/></span>
+                        <span ref={menuRef} className='text-[25px] hover:text-yellow-500 md:hidden'><CiMenuFries/></span>
                     </div>
                 </div>
 

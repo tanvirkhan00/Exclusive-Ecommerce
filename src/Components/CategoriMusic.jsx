@@ -8,7 +8,7 @@ const CategoriMusic = () => {
         <>
 
             <section>
-                <div className="container mx-auto mt-[50px]">
+                <div className="container mt-[50px]">
                     <div className='flex flex-wrap justify-between items-center bg-black gap-[20px] gap-y-10 py-[50px] px-5'>
                         <div className='basis-[35%] text-white'>
                             <h4 className='text-green-600'>Categories</h4>

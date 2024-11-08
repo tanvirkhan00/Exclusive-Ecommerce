@@ -34,7 +34,7 @@ const BestSelling = () => {
     return (
         <>
             <section>
-                <div className="container mx-auto mt-[50px] px-[10px]">
+                <div className="container mt-[50px]">
                     <div>
                         <div className='flex items-center gap-[10px]'>
                             <span className='w-[10px] h-[20px] bg-red-600'></span>
@@ -46,17 +46,17 @@ const BestSelling = () => {
                                 View all
                             </button></Link>
                         </div>
-                        <div className='flex justify-between gap-4 flex-wrap mt-[20px]'>
+                        <div className='flex gap-2 lg:gap-4 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (
-                                <div className='relative basis-[48%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[48%] md:basis-[32%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
-                                    <div className='mt-[10px]'>
-                                        <h1 className='text-[20px] font-semibold '>{item.title}</h1>
+                                    <div className='mt-[10px] text-center flex flex-col items-center'>
+                                        <h1 className=' font-semibold '>{item.title}</h1>
                                         <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
                                         <div className='flex'>
                                             <span className=' text-yellow-600'><CiStar /></span>

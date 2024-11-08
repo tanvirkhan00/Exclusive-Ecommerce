@@ -18,7 +18,7 @@ const Footer = () => {
 
             <footer className='bg-black px-[10px]'>
                 <div className="container mx-auto">
-                    <div className='grid grid-cols-2 gap-[20px] text-white py-[50px] text-[12px]'>
+                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[20px] text-white py-[50px] text-[12px]'>
                         <div className='flex flex-col gap-2'>
                             <h1 className='text-[30px] font-bold'>Exclusive</h1>
                             <h3 className='text-[20px]'>Subscribe</h3>
@@ -60,14 +60,14 @@ const Footer = () => {
                                         <span className='text-green-500 text-[20px]'><IoLogoGooglePlaystore /></span>
                                         <div>
                                             <h3 className='text-[8px]'>Get It On</h3>
-                                            <h2 className='text-[15px] font-semibold'>Google Play</h2>
+                                            <h2 className='text-[10px] font-semibold'>Google Play</h2>
                                         </div>
                                     </div>
                                     <div className='flex items-center gap-2 border-2 border-white rounded-md px-2'>
                                         <span className=' text-[20px]'><FaApple /></span>
                                         <div>
                                             <h3 className='text-[8px]'>Download on the</h3>
-                                            <h2 className='text-[15px] font-semibold'>App Store</h2>
+                                            <h2 className='text-[10px] font-semibold'>App Store</h2>
                                         </div>
                                     </div>
                                 </div>

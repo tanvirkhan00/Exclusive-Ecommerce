@@ -11,6 +11,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import { BsCartPlusFill } from "react-icons/bs";
 
+
 const Shop = () => {
 
     let products = useContext(apiData)
@@ -20,17 +21,40 @@ const Shop = () => {
     let dispatch = useDispatch()
 
 
+    let [currentPage, setCurrentPage] = useState(1) //define currentpage number, default is 1
+    let [perPage, setPerPage] = useState(15) //define per page items number
+
+
+    let lastItemIndex = currentPage * perPage //find the index of last item
+
+    let firstItemIndex = lastItemIndex - perPage //find the index of first item
+
+    let currentItems = products.slice(firstItemIndex, lastItemIndex) //extract items from main array by currentpage and perpage
+
+
+    let pageNumber = Math.ceil(products.length / perPage); //define total page numbers
+
+    let pageNumbers = [] //for storing 1 - last page number
+
+    for (let i = 1; i <= pageNumber; i++) {
+        pageNumbers.push(i);
+    } //for printing 1 - last page number
+
+    let handlePage = (item) => {
+        setCurrentPage(item)
+    }
+
     // Category Item
     useEffect(() => {
         setCategory([...new Set(products.map((item) => item.category))])
     }, [products])
 
+    // Category Wise Items
     let handleCategory = (cat) => {
         let filteredCat = products.filter((item) => item.category == cat)
         setCategoryItem(filteredCat)
         setPriceItem([])
     }
-
 
     // Item pricing
     let priceWiseItems = (value) => {
@@ -38,7 +62,6 @@ const Shop = () => {
         setPriceItem(priceFilter)
         setCategoryItem([])
     }
-
 
     // Add to Cart
     let handleCart = (item) => {
@@ -50,7 +73,20 @@ const Shop = () => {
         dispatch(WishListProduct({ ...itemId, qty: 1 }))
     }
 
+    // Page Prev and Next
+    let HandlePagePrev = () => {
+        setCurrentPage(currentPage - 1)
 
+    }
+    let HandlePageNext = () => {
+        setCurrentPage(currentPage + 1)
+    }
+
+    // Category visibility
+    let [isCategoryVisible, setIsCategoryVisible] = useState(false);
+    let toggleCategoryVisibility = () => {
+        setIsCategoryVisible(!isCategoryVisible)
+    }
 
 
     return (
@@ -58,23 +94,26 @@ const Shop = () => {
 
             <section>
                 <div className="container mt-[150px] mb-[50px] mx-auto">
-                    <div className='flex justify-between gap-2 items-start'>
-                        <div className='flex flex-col gap-10 basis-[25%] border-r-2 border-slate-500 '>
+                    <div className='md:flex justify-between gap-2 items-start'>
+                        <div className='flex flex-col gap-10 basis-[25%] border-r-2 border-slate-500'>
                             <div className='h-[400px] overflow-y-scroll'>
-                                <h1 className='text-[20px] font-semibold'>Category Products</h1>
-                                {category.map((item) => (
-                                    <div className='mt-4'>
-                                        <ul className='flex flex-col gap-2'>
-                                            <li onClick={() => handleCategory(item)}>
-                                                <a className='text-[14px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                ))}
+                                <h1 className='text-[20px] font-semibold' onClick={toggleCategoryVisibility}>Category Products</h1>
+                                {isCategoryVisible && (
+                                    category.map((item) => (
+                                        <div className='mt-4'>
+                                            <ul className='flex flex-col gap-2'>
+                                                <li onClick={() => handleCategory(item)}>
+                                                    <a className='text-[14px] capitalize cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>{item}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    ))
+                                )}
                             </div>
-                            <div>
-                                <h1 className='font-semibold'>Pricing</h1>
-                                <div className='flex flex-col gap-2 mt-2 text-[14px]'>
+                            <div className='group'>
+                                <h1 className='font-semibold cursor-pointer'>Pricing</h1>
+                                <div className='flex flex-col gap-2 text-[14px] mt-3 transition-all duration-500 ease-in-out 
+                           opacity-0 transform -translate-y-5 group-hover:opacity-100 group-hover:translate-y-0'>
                                     <a onClick={() => priceWiseItems({ low: 1, high: 100 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>1-100</a>
                                     <a onClick={() => priceWiseItems({ low: 101, high: 500 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>101-500</a>
                                     <a onClick={() => priceWiseItems({ low: 501, high: 1000 })} className='cursor-pointer duration-300 ease-in-out border-b-4 pb-1 border-transparent hover:border-b-slate-800'>501-1000</a>
@@ -86,7 +125,7 @@ const Shop = () => {
                         {categoryItem.length > 0 ?
                             <div className='basis-[70%] flex flex-wrap gap-4'>
                                 {categoryItem.map((item) => (
-                                    <div className='relative basis-[47%] pb-2 overflow-hidden group'>
+                                    <div className='relative basis-[47%] md:basis-[48%] lg:basis-[31%] pb-2 overflow-hidden group'>
                                         <div className='bg-slate-200 relative group flex items-center justify-center'>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                             <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
@@ -118,7 +157,7 @@ const Shop = () => {
                             priceItem.length > 0 ?
                                 <div className="basis-[70%] flex flex-wrap gap-4">
                                     {priceItem.map((item) => (
-                                        <div className='relative basis-[47%] pb-2 overflow-hidden group'>
+                                        <div className='relative basis-[47%] md:basis-[48%] lg:basis-[31%] pb-2 overflow-hidden group'>
                                             <div className='bg-slate-200 relative group flex items-center justify-center'>
                                                 <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                                 <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
@@ -147,11 +186,11 @@ const Shop = () => {
                                     ))}
                                 </div>
                                 :
-                                <div className='basis-[70%] flex flex-wrap gap-4'>
-                                    {products.map((item) => (
-                                        <div className='relative basis-[47%] pb-2 overflow-hidden group'>
+                                <div className='basis-[70%] flex flex-wrap lg:gap-4 gap-4'>
+                                    {currentItems.map((item) => (
+                                        <div className='relative basis-[47%] md:basis-[48%] lg:basis-[31%] pb-2 overflow-hidden group'>
                                             <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
+                                                <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-full' /></Link>
                                                 <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                                     <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                                 </div>
@@ -179,12 +218,12 @@ const Shop = () => {
                                 </div>
                         }
                     </div>
-                    <div className='flex justify-center mt-10 gap-7'>
-                        <span className='border-2 border-slate-500 px-4 py-1 cursor-pointer'>1</span>
-                        <span className='border-2 border-slate-500 px-4 py-1 cursor-pointer'>2</span>
-                        <span className='border-2 border-slate-500 px-4 py-1 cursor-pointer'>3</span>
-                        <span className='border-2 border-slate-500 px-4 py-1 cursor-pointer'>4</span>
-                        <span className='border-2 border-slate-500 px-4 py-1 cursor-pointer'>5</span>
+                    <div className='flex justify-center mt-10 gap-4 text-[20px] flex-wrap'>
+                        <span className='border-2 px-3 duration-500 border-slate-300 rounded-md ease-in-out hover:bg-green-600 hover:border-black' onClick={HandlePagePrev} >Prev</span>
+                        {pageNumbers.map((item) => (
+                            <span className='border-2 border-slate-300 px-3 duration-500 rounded-md ease-in-out hover:bg-green-600 hover:border-black' onClick={() => handlePage(item)}>{item}</span>
+                        ))}
+                        <span className='border-2 px-3 duration-500 border-slate-300 rounded-md ease-in-out hover:bg-green-600 hover:border-black' onClick={HandlePageNext} >Next</span>
                     </div>
                     <ToastContainer
                         position="top-right"

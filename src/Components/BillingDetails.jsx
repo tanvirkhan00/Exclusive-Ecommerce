@@ -23,10 +23,10 @@ const BillingDetails = () => {
     return (
         <>
             <section>
-                <div className="container mt-[150px] mb-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px]">
                     <h1 className='text-[35px] font-semibold'>Billing Details</h1>
                     <div className='flex justify-between gap-2 flex-wrap mt-[40px]'>
-                        <div className=''>
+                        <div className='md:basis-[48%]'>
                             <form className='flex flex-col gap-4'>
                                 <div className='flex flex-col gap-1'>
                                     <label className='text-slate-500' htmlFor="name">First Name</label>
@@ -61,7 +61,7 @@ const BillingDetails = () => {
                                 <p className='flex items-center gap-4'><span className='text-[30px] text-red-500'><CiSquareCheck /></span>Save this information for faster check-out next time</p>
                             </div>
                         </div>
-                        <div className='flex flex-col gap-6 mt-5'>
+                        <div className='md:basis-[48%] flex flex-col gap-6 mt-5'>
                             <div className='flex flex-col gap-4'>
                                 {cartProduct.map((item) => (
                                     <div className='flex items-center gap-2 justify-between shadow-sm shadow-black px-2 py-1 duration-500 ease-in-out hover:-translate-y-2'>

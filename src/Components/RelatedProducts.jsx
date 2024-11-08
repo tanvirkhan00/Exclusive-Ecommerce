@@ -27,15 +27,15 @@ const RelatedProducts = ({ filterProducts }) => {
         <>
 
             <section>
-                <div className="container my-[50px] mx-auto">
+                <div className="container my-[50px]">
                     <div className='flex flex-col gap-8'>
                         <div className='flex items-center gap-4'>
                             <span className='bg-red-500 w-[15px] h-[30px]'></span>
                             <h1 className='font-semibold text-[30px]'>Related Item</h1>
                         </div>
-                        <div className='flex flex-wrap gap-4'>
+                        <div className='flex flex-wrap gap-5'>
                             {filterProducts?.map((item) => (
-                                <div className='relative basis-[30%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[30%] lg:basis-[23%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>

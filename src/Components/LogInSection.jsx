@@ -8,12 +8,12 @@ const LogInSection = () => {
         <>
 
             <section>
-                <div className="container mx-auto mt-[150px] mb-[50px]">
-                    <div className='flex flex-wrap gap-[50px] items-center'>
-                        <div className=''>
+                <div className="container mt-[150px] mb-[50px]">
+                    <div className='flex flex-wrap gap-[20px] items-center'>
+                        <div className='md:basis-[47%]'>
                             <img src={sideImg} alt="" />
                         </div>
-                        <div className='flex flex-col gap-[20px] w-full'>
+                        <div className='md:basis-[47%] flex flex-col gap-[20px] w-full'>
                             <h1 className='text-[35px] font-semibold'>Log in to Exclusive</h1>
                             <h3 className='text-[14px]'>Enter your details below</h3>
                             <form className='flex flex-col gap-4'>

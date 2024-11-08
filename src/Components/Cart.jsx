@@ -84,7 +84,7 @@ const Cart = () => {
                                 <a>Update Cart</a>
                             </button>
                         </div>
-                        <div className='flex flex-col justify-center items-center gap-4 mt-8'>
+                        <div className='flex flex-col justify-center md:items-end items-center gap-4 mt-8'>
                             <div className='flex items-center gap-5'>
                                 <input className='outline-0 border-slate-600 border-2 rounded-md py-3 px-2' type="text" placeholder='Coupon Code' />
                                 <button className='px-7 py-3 rounded-md border-2 border-black duration-300 hover:bg-red-500'>

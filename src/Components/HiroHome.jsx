@@ -29,7 +29,7 @@ const HiroHome = () => {
         <>
             <section>
                 <div className="container mt-[150px] mb-[50px] mx-auto">
-                    <div className="slider-container w-[100%] mx-auto">
+                    <div className="slider-container w-[100%] md:w-[90%] lg:w-[70%] mx-auto">
                         <Slider {...settings}>
                             <div>
                                 <div className='bg-black text-white flex items-center'>

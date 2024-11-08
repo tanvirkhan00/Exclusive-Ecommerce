@@ -34,53 +34,53 @@ const FlashSales = () => {
         <>
 
             <section>
-                <div className="container mt-[50px] mx-auto border-b-2 border-slate-400 pb-[50px] px-[10px]">
+                <div className="container mt-[50px]  border-b-2 border-slate-400 pb-[50px]">
                     <div className='flex flex-col gap-[20px]'>
                         <div className='flex items-center gap-[10px]'>
                             <span className='w-[10px] h-[20px] bg-red-600'></span>
                             <h1 className='font-semibold text-red-600'>Today's</h1>
                         </div>
                         <div className='flex flex-col items-center '>
-                            <h1 className='font-semibold text-[35px]'>Flash Sales</h1>
+                            <h1 className='font-semibold text-[25px]'>Flash Sales</h1>
                             <div className='flex items-center gap-[20px] text-center'>
                                 <div>
                                     <h3 className='font-semibold'>Days</h3>
-                                    <h4 className='font-bold text-[35px]'>03</h4>
+                                    <h4 className='font-bold text-[25px]'>03</h4>
                                 </div>
                                 <div>
-                                    <span className='text-[30px] font-bold'>:</span>
+                                    <span className='text-[20px] font-bold'>:</span>
                                 </div>
                                 <div>
                                     <h3 className='font-semibold'>Hour</h3>
-                                    <h4 className='font-bold text-[35px]'>23</h4>
+                                    <h4 className='font-bold text-[25px]'>23</h4>
                                 </div>
                                 <div>
-                                    <span className='text-[30px] font-bold'>:</span>
+                                    <span className='text-[20px] font-bold'>:</span>
                                 </div>
                                 <div>
                                     <h3 className='font-semibold'>Minutes</h3>
-                                    <h4 className='font-bold text-[35px]'>19</h4>
+                                    <h4 className='font-bold text-[25px]'>19</h4>
                                 </div>
                                 <div>
-                                    <span className='text-[30px] font-bold'>:</span>
+                                    <span className='text-[20px] font-bold'>:</span>
                                 </div>
                                 <div>
                                     <h3 className='font-semibold'>Seconds</h3>
-                                    <h4 className='font-bold text-[35px]'>56</h4>
+                                    <h4 className='font-bold text-[25px]'>56</h4>
                                 </div>
                             </div>
                         </div>
-                        <div className='flex gap-4 flex-wrap'>
+                        <div className='flex lg:gap-4 gap-3 flex-wrap'>
                             {filterProduct.map((item) => (
-                                <div className='relative basis-[48%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[48%] md:basis-[32%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-[200px]' /></Link>
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-full' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
-                                    <div className='mt-[10px]'>
-                                        <h1 className='text-[20px] font-semibold '>{item.title}</h1>
+                                    <div className='mt-[10px] text-center flex flex-col items-center'>
+                                        <h1 className='font-semibold '>{item.title}</h1>
                                         <h3 className='text-red-500 font-semibold my-1'>${item.price}</h3>
                                         <div className='flex'>
                                             <span className=' text-yellow-600'><CiStar /></span>
