@@ -13,7 +13,7 @@ const ContactSection = () => {
             <section>
                 <div className="container mt-[150px] mb-[50px] mx-auto px-[10px]">
                     <div className='flex justify-between gap-2 flex-wrap'>
-                        <div className='basis-[100%] shadow-lg p-10 flex flex-col gap-5 text-[14px]'>
+                        <div className='basis-[100%] lg:basis-[47%] shadow-lg p-10 flex flex-col gap-5 text-[14px]'>
                             <div className='flex flex-col gap-2 border-b-2 border-slate-300 pb-5'>
                                 <h2 className='flex items-center gap-2 text-[20px] font-semibold'><span className='bg-red-500 p-2 rounded-full text-white text-[16px]'><TbPhoneCall /></span>Call To Us</h2>
                                 <p>We are available 24/7, 7days a week</p>
@@ -26,7 +26,7 @@ const ContactSection = () => {
                                 <h3>Emails: support@exclusive.com</h3>
                             </div>
                         </div>
-                        <div className='shadow-lg p-10 basis-[100%]'>
+                        <div className='shadow-lg p-10 basis-[100%] lg:basis-[47%]'>
                             <form action="" className=' basis-[60%] flex flex-wrap justify-between gap-2'>
                                 <input type="text" className='bg-slate-100 py-2 outline-none px-2 border-2 border-slate-200 rounded-sm basis-[100%] duration-300 ease-in-out hover:border-black' placeholder='Your Name' />
                                 <input type="text" className='bg-slate-100 py-2 outline-none px-2 border-2 border-slate-200 rounded-sm basis-[100%] duration-300 ease-in-out hover:border-black' placeholder='Your Email' />

@@ -51,14 +51,14 @@ const Cart = () => {
                                 <li className='basis-[23%] text-end'>Subtotal</li>
                             </ul>
                         </div>
-                        <div className='flex flex-col  gap-6'>
+                        <div className='flex flex-col gap-6'>
                             {cartItems.map((item, index) => (
                                 <div className='flex items-center justify-between gap-2 group px-2 shadow-slate-600 shadow-sm py-1'>
                                     <div className='flex items-center gap-2 relative basis-[40%]'>
-                                        <div>
+                                        <div className=''>
                                             <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[50px] w-[50px]' /></Link>
                                         </div>
-                                        <h2 className='text-[14px] text-center'>{item.title}</h2>
+                                        <h2 className='text-[14px]'>{item.title}</h2>
                                         <span className='absolute top-0 left-0 text-red-500 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100 ' onClick={() => deleteItem(index)}><IoIosCloseCircle /></span>
                                     </div>
                                     <div className='basis-[10%] text-center text-[14px]'><h4>{item.price}</h4></div>

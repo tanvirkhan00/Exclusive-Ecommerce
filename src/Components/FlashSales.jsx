@@ -72,7 +72,7 @@ const FlashSales = () => {
                         </div>
                         <div className='flex lg:gap-4 gap-3 flex-wrap'>
                             {filterProduct.map((item) => (
-                                <div className='relative basis-[48%] md:basis-[32%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[48%] md:basis-[32%] lg:basis-[24%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
                                         <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[250px] w-full' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>

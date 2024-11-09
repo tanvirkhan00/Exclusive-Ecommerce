@@ -15,11 +15,11 @@ const SignUpPage = () => {
 
             <section>
                 <div className="container mx-auto mt-[150px] mb-[50px]">
-                    <div className='flex flex-wrap gap-[50px] items-center'>
-                        <div className=''>
+                    <div className='flex flex-wrap gap-[50px] items-center lg:justify-center'>
+                        <div className='lg:basis-[48%]'>
                             <img src={sideImg} alt="" />
                         </div>
-                        <div className='flex flex-col gap-[20px] w-full'>
+                        <div className='lg:basis-[35%] flex flex-col gap-[20px] w-full'>
                             <h1 className='text-[35px] font-semibold'>Create an account</h1>
                             <h3 className='text-[14px]'>Enter your details below</h3>
                             <form className='flex flex-col gap-4'>

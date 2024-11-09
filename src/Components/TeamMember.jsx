@@ -17,12 +17,38 @@ const TeamMember = () => {
     const settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 2,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         speed: 7000,
         autoplaySpeed: 2000,
-        cssEase: "linear"
+        cssEase: "linear",
+         responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+    ]
     };
 
     return (
@@ -32,9 +58,9 @@ const TeamMember = () => {
                 <div className="container mx-auto mt-[50px]">
                     <div className='slider-container w-[100%]'>
                         <Slider {...settings}>
-                            <div>
-                                <div>
-                                    <img src={Team1} alt="" />
+                            <div className=''>
+                                <div className='w-[90%]'>
+                                    <img className='w-full' src={Team1} alt="" />
                                     <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Tom Cruise</h2>
                                         <p>Founder & Chairmen</p>
@@ -47,7 +73,7 @@ const TeamMember = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className='w-[90%]'>
                                     <img src={Team2} alt="" />
                                     <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Emma Watson</h2>
@@ -61,7 +87,7 @@ const TeamMember = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className='w-[90%]'>
                                     <img src={Team3} alt="" />
                                     <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Will Smith</h2>
@@ -75,7 +101,7 @@ const TeamMember = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className='w-[90%]'>
                                     <img src={Team1} alt="" />
                                     <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Tom Cruise</h2>
@@ -89,7 +115,7 @@ const TeamMember = () => {
                                 </div>
                             </div>
                             <div>
-                                <div>
+                                <div className='w-[90%]'>
                                     <img src={Team2} alt="" />
                                     <div className='flex flex-col gap-2 items-center'>
                                         <h2 className='text-[25px] font-semibold'>Emma Watson</h2>
