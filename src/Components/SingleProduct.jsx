@@ -59,7 +59,7 @@ const SingleProduct = () => {
                         <div className='lg:basis-[48%] flex items-center justify-center w-full'>
                             <img src={info.thumbnail} alt="" className='' />
                         </div>
-                        <div className='lg:basis-[48%] flex flex-col gap-2 lg:gap-4'>
+                        <div className='lg:basis-[48%] flex flex-col gap-2 lg:gap-2'>
                             <h1 className='text-[25px] font-semibold'>{info.title}</h1>
                             <div className='flex items-center gap-2'>
                                 <span className='text-yellow-500'><FaStar /></span>
@@ -68,12 +68,15 @@ const SingleProduct = () => {
                                 <span className='text-yellow-500'><FaStar /></span>
                                 <span className='text-yellow-500'><FaStar /></span>
                                 <p className=''>(130 Reviews)</p>
-                                <p className='border-l-2 pl-4 border-slate-400 text-green-600'>In Stock</p>
+                                <p className='border-l-2 pl-4 border-slate-400 text-green-600'>{info.availabilityStatus}</p>
                             </div>
                             <h2 className='text-red-500 text-[20px]'>${info.price}</h2>
                             <p className='pb-3'>{info.description}</p>
                             <p className='flex items-center gap-2 text-[20px] font-semibold border-t-2 border-slate-400 pt-4'>Colors: <span className='h-[17px] w-[17px] rounded-full bg-green-500'></span> <span className='h-[17px] w-[17px] rounded-full bg-red-500'></span></p>
                             <p className='text-[20px] font-semibold'>Category: <span className='font-normal text-red-700 capitalize'>{info.category}</span></p>
+                            <p className='text-[20px] font-semibold'>Warranty: <span className='font-normal text-red-700 capitalize'>{info.warrantyInformation}</span></p>
+                            <p className='text-[20px] font-semibold'>Brand: <span className='font-normal text-red-700 capitalize'>{info.brand}</span></p>
+                            <p className='text-[20px] font-semibold'>Stock: <span className='font-normal text-red-700 capitalize'>{info.stock}</span></p>
                             <div className='flex items-center gap-4 mt-2'>
                                 <p className='text-[20px] font-semibold'>Size: </p>
                                 <div className='flex items-center gap-2'>
@@ -101,7 +104,7 @@ const SingleProduct = () => {
                                     <span className='text-[30px]'><IoRefreshCircleOutline /></span>
                                     <div>
                                         <h1 className='font-semibold text-[18px]'>Return Delivery</h1>
-                                        <a>Free 30 days delivery returns. <span className='border-b-2 border-slate-400'>Details</span></a>
+                                        <a>{info.returnPolicy}. <span className='border-b-2 border-slate-400'>Details</span></a>
                                     </div>
                                 </div>
                             </div>

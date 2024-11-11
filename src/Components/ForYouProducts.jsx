@@ -35,7 +35,7 @@ const ForYouProducts = () => {
         <>
 
             <section>
-                <div className="container mx-auto my-[50px]">
+                <div className="container my-[50px]">
                     <div>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center gap-[10px]'>
@@ -46,17 +46,17 @@ const ForYouProducts = () => {
                                 <a>See All</a>
                             </button></Link>
                         </div>
-                        <div className='flex justify-between gap-3 flex-wrap mt-[20px]'>
+                        <div className='flex gap-3 lg:gap-4 flex-wrap mt-[20px]'>
                             {filterProducts.map((item) => (
-                                <div className='relative basis-[31%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[31%] md:basis-[32%] lg:basis-[24%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
                                     <div className='mt-[10px]'>
-                                        <h1 className='text-[14px] font-semibold '>{item.title}</h1>
+                                        <h1 className='text-[14px] md:text-[18px] font-semibold w-[100px] md:w-[200px] truncate'>{item.title}</h1>
                                         <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                         <div className='flex'>
                                             <span className=' text-yellow-600'><CiStar /></span>

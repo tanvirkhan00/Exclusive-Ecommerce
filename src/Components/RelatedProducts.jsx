@@ -33,17 +33,17 @@ const RelatedProducts = ({ filterProducts }) => {
                             <span className='bg-red-500 w-[15px] h-[30px]'></span>
                             <h1 className='font-semibold text-[30px]'>Related Item</h1>
                         </div>
-                        <div className='flex flex-wrap gap-5'>
+                        <div className='flex flex-wrap gap-4 md:gap-[25px] lg:gap-[32px]'>
                             {filterProducts?.map((item) => (
-                                <div className='relative basis-[30%] lg:basis-[23%] pb-2 overflow-hidden group'>
+                                <div className='relative basis-[30%] md:basis-[31%] lg:basis-[23%] pb-2 overflow-hidden group'>
                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-[200px]' /></Link>
+                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] lg:h-[250px]' /></Link>
                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                             <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                         </div>
                                     </div>
                                     <div className='mt-[10px]'>
-                                        <h1 className='text-[14px] font-semibold '>{item.title}</h1>
+                                        <h1 className='text-[14px] md:text-[18px] font-semibold w-[100px] md:w-[200px] truncate'>{item.title}</h1>
                                         <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                         <div className='flex'>
                                             <span className=' text-yellow-600'><CiStar /></span>

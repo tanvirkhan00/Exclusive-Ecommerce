@@ -119,6 +119,7 @@ const Shop = () => {
         setLimitedItems(ddd)
     }
 
+    // Show all and hide categoryItem
     let [limitedItemsCategory, setLimitedItemsCategory] = useState([]);
     useEffect(() => {
         let filteredItemsCategory = categoryItem.slice(0, 6)
@@ -139,7 +140,7 @@ const Shop = () => {
         <>
 
             <section>
-                <div className="container mt-[150px] mb-[50px] mx-auto">
+                <div className="container mt-[150px] mb-[50px]">
                     <div className='md:flex justify-between gap-2 items-start'>
                         <div className='flex justify-between md:flex-col gap-10 md:basis-[15%] md:border-r-2 md:border-slate-500'>
                             <div className=''>
@@ -173,13 +174,13 @@ const Shop = () => {
                             </div>
                         </div>
                         <div className='md:basis-[80%] flex flex-col gap-5'>
-                            <div className='flex items-center justify-between'>
-                                <input onChange={handleShowByNumber} type="text" className='py-2 border-[1px] border-[#000] pl-3' />
+                            <div className='flex items-center justify-between '>
+                                <input onChange={handleShowByNumber} type="text" placeholder='Provide Item Quantity' className='py-2 border-[1px] border-[#000] pl-3' />
                                 <p className='border-b-2 border-red-500 '>Products from {firstItemIndex + 1} to {lastItemIndex}</p>
                             </div>
                             <div>
                                 {categoryItem.length > 0 ?
-                                    <div className='flex flex-col justify-between lg:gap-5 items-center'>
+                                    <div className='flex flex-col  lg:gap-5 items-center'>
                                         <div className="flex flex-wrap gap-4">
                                             {limitedItemsCategory.map((item) => (
                                                 <div className='relative basis-[48%]  lg:basis-[32%] pb-2 overflow-hidden group'>
@@ -190,7 +191,7 @@ const Shop = () => {
                                                         </div>
                                                     </div>
                                                     <div className='mt-[10px]'>
-                                                        <h1 className=' font-semibold'>{item.title}</h1>
+                                                        <h1 className=' font-semibold w-[200px] truncate'>{item.title}</h1>
                                                         <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                                         <div className='flex'>
                                                             <span className=' text-yellow-600'><CiStar /></span>
@@ -214,13 +215,13 @@ const Shop = () => {
                                             {limitedItemsCategory.length > 6 ?
                                                 <button className='bg-black text-white border-2 border-red-500 px-8 py-2 flex items-center gap-4 group' onClick={handleHideCategory}>Hide <span className='text-[18px] duration-500 ease-in-out group-hover:-translate-y-1 group-hover:text-red-600'><FaCircleChevronUp /></span> </button>
                                                 :
-                                                <button className='bg-black text-white border-2 border-red-500 px-5 py-2 flex items-center gap-4 group' onClick={handleShowAllCategory}>Show All <span className='text-[18px] duration-500 ease-in-out group-hover:translate-y-1 group-hover:text-red-600'><FaCircleChevronDown /></span></button>
+                                                <button className={`bg-black text-white border-2 border-red-500 px-5 py-2 flex items-center gap-4 group ${limitedItemsCategory.length > 5 ?"opacity-100" : "opacity-0"}`} onClick={handleShowAllCategory}>Show All <span className='text-[18px] duration-500 ease-in-out group-hover:translate-y-1 group-hover:text-red-600'><FaCircleChevronDown /></span></button>
                                             }
                                         </div>
                                     </div>
                                     :
                                     priceItem.length > 0 ?
-                                        <div className='flex flex-col justify-between lg:gap-5 items-center'>
+                                        <div className='flex flex-col lg:gap-5 items-center'>
                                             <div className="flex flex-wrap gap-4">
                                                 {limitedItems.map((item) => (
                                                     <div className='relative basis-[48%] lg:basis-[32%] pb-2 overflow-hidden group'>
@@ -231,7 +232,7 @@ const Shop = () => {
                                                             </div>
                                                         </div>
                                                         <div className='mt-[10px]'>
-                                                            <h1 className=' font-semibold'>{item.title}</h1>
+                                                            <h1 className=' font-semibold w-[200px] truncate'>{item.title}</h1>
                                                             <h3 className='text-red-500 font-semibold my-1 text-[14px]'>${item.price}</h3>
                                                             <div className='flex'>
                                                                 <span className=' text-yellow-600'><CiStar /></span>
@@ -260,17 +261,17 @@ const Shop = () => {
                                             </div>
                                         </div>
                                         :
-                                        <div className='flex flex-wrap lg:gap-4 justify-between'>
+                                        <div className='flex flex-wrap lg:gap-4'>
                                             {currentItems.map((item) => (
                                                 <div className='relative basis-[48%]  lg:basis-[32%] pb-2 overflow-hidden group'>
                                                     <div className='bg-slate-200 relative group flex items-center justify-center'>
-                                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] w-full' /></Link>
+                                                        <Link to={`/shop/${item.id}`}><img src={item.thumbnail} alt="" className='h-[180px] lg:h-[230px]' /></Link>
                                                         <div className='absolute bottom-0 text-center w-full bg-black bg-opacity-70 text-white py-2 opacity-0 duration-700 ease-in-out cursor-pointer group-hover:opacity-100'>
                                                             <h3 onClick={() => handleCart(item)} className='flex items-center justify-center gap-2 text-[14px]'><BsCartPlusFill />Add To Cart</h3>
                                                         </div>
                                                     </div>
                                                     <div className='mt-[10px]'>
-                                                        <h1 className=' font-semibold '>{item.title}</h1>
+                                                        <h1 className=' font-semibold w-[200px] truncate'>{item.title}</h1>
                                                         <h3 className='text-red-500 text-[14px] font-semibold my-1'>${item.price}</h3>
                                                         <div className='flex'>
                                                             <span className=' text-yellow-600'><CiStar /></span>
@@ -296,7 +297,7 @@ const Shop = () => {
                                 <span className='border-2 px-3 py-1 duration-500 border-red-500  rounded-md ease-in-out hover:bg-green-600 hover:border-black' onClick={HandlePagePrev} >Prev</span>
                                 {pageNumbers.map((item) => (
                                     <span onClick={() => handlePage(item)}>
-                                        <h4 className={`py-1 px-5 border-2 border-[#000] duration-500 rounded-md hover:bg-green-400 ease-in-out ${item === currentPage ? "bg-black text-white" : ""}`}>{item}</h4>
+                                        <h4 className={`py-1 px-5 border-2 border-[#000] duration-1000 rounded-md hover:bg-green-400  ease-in-out ${item === currentPage ? "bg-black text-white" : ""}`}>{item}</h4>
                                     </span>
                                 ))}
                                 <span className='border-2 px-3 py-1 duration-500 border-red-500 rounded-md ease-in-out hover:bg-green-600 hover:border-black' onClick={HandlePageNext} >Next</span>
