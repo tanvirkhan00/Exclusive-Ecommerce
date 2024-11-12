@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ContextApi } from './Components/ContextApi.jsx';
 import { Provider } from 'react-redux'
 import Store from './Store.js';
+import firebaseConfig from './Firebase/FireBase.jsx';
 
 
 createRoot(document.getElementById('root')).render(

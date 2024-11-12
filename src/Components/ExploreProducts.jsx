@@ -6,8 +6,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // React Icons
-import { FaRegArrowAltCircleLeft } from "react-icons/fa";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
@@ -17,7 +15,8 @@ const ExploreProducts = () => {
 
     let dispatch = useDispatch()
     let info = useContext(apiData)
-    let filterProducts = info.filter((item) => item.id <= 8)
+    let filterProducts = info.filter((item) => item.category === "beauty")
+    
 
     // Add Cart
     let handleCart = (itemId) => {
