@@ -98,13 +98,13 @@ const Footer = () => {
                         {/* Quick Link Section */}
                         <div className='flex flex-col gap-3'>
                             <h1 className='text-2xl font-bold mb-2'>Quick Link</h1>
-                            <Link to="/privacy" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
+                            <Link to="/" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
                                 Privacy Policy
                             </Link>
-                            <Link to="/terms" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
+                            <Link to="/" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
                                 Terms Of Use
                             </Link>
-                            <Link to="/faq" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
+                            <Link to="/" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>
                                 FAQ
                             </Link>
                             <Link to="/contact" className='text-gray-400 text-sm hover:text-yellow-400 hover:translate-x-2 transition-all duration-300'>

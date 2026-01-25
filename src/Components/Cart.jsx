@@ -57,7 +57,7 @@ const Cart = () => {
 
     return (
         <>
-            <section className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-red-50/20 py-12 lg:mt-[100px]">
+            <section className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-red-50/20 py-12 mt-[80px]">
                 <div className="container mx-auto px-4">
                     {/* Header */}
                     <motion.div 

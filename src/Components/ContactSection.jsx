@@ -49,7 +49,7 @@ const ContactSection = () => {
 
     return (
         <>
-            <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50/30 relative overflow-hidden lg:mt-[100px]">
+            <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50/30 relative overflow-hidden mt-[60px]">
                 {/* Background decoration */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.08),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.08),transparent_50%)]"></div>
 
